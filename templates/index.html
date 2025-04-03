@@ -1,0 +1,218 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <!-- Hero-секция -->
+  <section class="bg-hero text-white py-5">
+    <div class="container">
+      <div class="col-12 col-md-8">
+        <h1 class="display-4 fw-bold mb-3">Fire Protection Solutions</h1>
+        <p class="lead mb-4">
+          Production of fireproof and non-combustible materials – fire collars, cable
+          penetrations, sealants, varnishes, and paints.
+        </p>
+        <div class="d-flex flex-column flex-sm-row gap-3">
+          <button class="btn btn-danger">Explore Products</button>
+          <button class="btn btn-outline-light">Learn More</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Основной контент с сайдбаром -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <!-- Сайдбар -->
+        <aside class="col-12 col-md-4 col-lg-3 mb-4 mb-md-0">
+          <div class="card mb-4">
+            <div class="card-header bg-dark text-white">Our Products</div>
+            <ul class="list-group list-group-flush" id="productSidebar">
+              <!-- js заполнит список -->
+            </ul>
+          </div>
+
+          <!-- Contact Card -->
+          <div class="card bg-dark text-white">
+            <div class="card-body">
+              <h5 class="card-title">Need Assistance?</h5>
+              <p class="card-text small">
+                Our technical experts are ready to help you choose the right fire
+                protection solution.
+              </p>
+              <div class="mb-2 small">
+                <i class="bi bi-telephone-fill text-danger me-2"></i>
+                +1 (555) 123-4567
+              </div>
+              <div class="mb-3 small">
+                <i class="bi bi-envelope-fill text-danger me-2"></i>
+                info@ogneza.com
+              </div>
+              <button class="btn btn-danger w-100">Contact Us</button>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Основная колонка -->
+        <div class="col-12 col-md-8 col-lg-9">
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <h2 id="productName" class="h4 fw-bold me-3 mb-0">Product Name</h2>
+                <div
+                  class="flex-grow-1"
+                  style="height: 2px; max-width: 120px; background-color: #DE2E26;"
+                ></div>
+              </div>
+              <p id="productDescription" class="text-secondary">
+                Product description here...
+              </p>
+
+              <div class="row g-4 mb-4">
+                <div class="col-12 col-md-6">
+                  <h5 class="mb-3 d-flex align-items-center gap-2">
+                    <i class="bi bi-shield-fill-exclamation text-danger fs-5"></i>
+                    Key Benefits
+                  </h5>
+                  <ul id="productBenefits" class="list-unstyled">
+                    <!-- js заполнит список преимуществ -->
+                  </ul>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div
+                    class="border rounded overflow-hidden position-relative"
+                    style="height: 300px;"
+                  >
+                    <img
+                      id="productImage"
+                      src=""
+                      alt=""
+                      class="w-100 h-100"
+                      style="object-fit: cover;"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex flex-column flex-sm-row gap-3">
+                <button class="btn btn-danger">Request Specification</button>
+                <button class="btn btn-outline-dark">Download Brochure</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Сертификаты -->
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <h2 class="h4 fw-bold me-3 mb-0">Industry Certifications</h2>
+                <div
+                  class="flex-grow-1"
+                  style="height: 2px; max-width: 120px; background-color: #DE2E26;"
+                ></div>
+              </div>
+
+              <div class="row text-center">
+                <div class="col-6 col-md-3 mb-4">
+                  <div
+                    class="rounded-circle bg-light d-flex justify-content-center align-items-center mx-auto mb-2"
+                    style="width:80px; height:80px;"
+                  >
+                    <i class="bi bi-info-circle fs-3 text-danger"></i>
+                  </div>
+                  <span class="small">Certification 1</span>
+                </div>
+                <div class="col-6 col-md-3 mb-4">
+                  <div
+                    class="rounded-circle bg-light d-flex justify-content-center align-items-center mx-auto mb-2"
+                    style="width:80px; height:80px;"
+                  >
+                    <i class="bi bi-info-circle fs-3 text-danger"></i>
+                  </div>
+                  <span class="small">Certification 2</span>
+                </div>
+                <div class="col-6 col-md-3 mb-4">
+                  <div
+                    class="rounded-circle bg-light d-flex justify-content-center align-items-center mx-auto mb-2"
+                    style="width:80px; height:80px;"
+                  >
+                    <i class="bi bi-info-circle fs-3 text-danger"></i>
+                  </div>
+                  <span class="small">Certification 3</span>
+                </div>
+                <div class="col-6 col-md-3 mb-4">
+                  <div
+                    class="rounded-circle bg-light d-flex justify-content-center align-items-center mx-auto mb-2"
+                    style="width:80px; height:80px;"
+                  >
+                    <i class="bi bi-info-circle fs-3 text-danger"></i>
+                  </div>
+                  <span class="small">Certification 4</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="bg-dark text-white py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="h3 fw-bold">Why Choose Ogneza</h2>
+        <div
+          class="mx-auto"
+          style="height: 2px; width: 100px; background-color: #DE2E26;"
+        ></div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <div class="p-4 bg-secondary-subtle1 h-100 text-center text-light rounded">
+            <div
+              class="mx-auto d-flex justify-content-center align-items-center rounded-circle mb-3"
+              style="width:64px; height:64px; background-color: rgba(222,46,38,0.1);"
+            >
+              <i class="bi bi-shield-fill-exclamation fs-3 text-danger"></i>
+            </div>
+            <h3 class="h6 fw-bold">Certified Quality</h3>
+            <p class="small">
+              All our products are tested and certified to meet international fire safety standards.
+            </p>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="p-4 bg-secondary-subtle1 h-100 text-center text-light rounded">
+            <div
+              class="mx-auto d-flex justify-content-center align-items-center rounded-circle mb-3"
+              style="width:64px; height:64px; background-color: rgba(222,46,38,0.1);"
+            >
+              <i class="bi bi-fire fs-3 text-danger"></i>
+            </div>
+            <h3 class="h6 fw-bold">Expert Solutions</h3>
+            <p class="small">
+              Our team of fire protection experts provides tailored solutions for your specific needs.
+            </p>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="p-4 bg-secondary-subtle1 h-100 text-center text-light rounded">
+            <div
+              class="mx-auto d-flex justify-content-center align-items-center rounded-circle mb-3"
+              style="width:64px; height:64px; background-color: rgba(222,46,38,0.1);"
+            >
+              <i class="bi bi-info-circle fs-3 text-danger"></i>
+            </div>
+            <h3 class="h6 fw-bold">Technical Support</h3>
+            <p class="small">
+              Comprehensive technical support from specification to installation and maintenance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
