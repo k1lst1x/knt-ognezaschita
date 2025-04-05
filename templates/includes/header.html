@@ -1,9 +1,53 @@
-<header class="bg-dark text-white py-3">
+{% load static %}
+
+<style>
+.hero-wrapper {
+  background-image: url('{% static "images/banner.png" %}');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.hero-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* затемнение */
+  z-index: 1;
+}
+
+.hero-wrapper header,
+.hero-wrapper .container,
+.hero-wrapper section.bg-hero {
+  position: relative;
+  z-index: 2;
+}
+/* landing.css или <style> внутри шаблона */
+    #mobileNav.collapse:not(.show) {
+  display: block; /* Чтобы transition работал */
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s ease;
+}
+
+#mobileNav.collapse.show {
+  height: auto; /* Даст Bootstrap'у возможность вычислить высоту */
+  transition: height 0.3s ease;
+}
+</style>
+
+{% if is_homepage %}
+  <div class="hero-wrapper">
+{% endif %}
+
+<header class="text-white py-3 {% if not is_homepage %}bg-dark{% endif %}">
   <div class="container d-flex flex-wrap justify-content-between align-items-center">
     <!-- Логотип -->
     <div class="d-flex align-items-center">
-      <i class="bi bi-fire me-2 fs-3 text-danger"></i>
-      <span class="fs-4 fw-bold">OGNEZA</span>
+      <img src="{% static 'images/logo.png' %}" alt="" style="height: 100px;" style="object-fit: cover;"/>
+      <!-- <i class="bi bi-fire me-2 fs-3 text-danger"></i>
+      <span class="fs-4 fw-bold">OGNEZA</span> -->
     </div>
 
     <!-- Навигация (для больших экранов) -->
@@ -41,3 +85,21 @@
     </div>
   </div>
 </header>
+
+{% if is_homepage %}
+    <section class="text-white py-5">
+      <div class="container">
+        <div class="col-12 col-md-8 mx-auto text-center">
+          <h1 class="display-5 fw-bold mb-3">Решения противопожарной защиты</h1>
+          <p class="lead mb-4">
+            Уже более 8 лет мы работаем на рынке, заслужив репутацию надёжного партнёра для предприятий, учреждений и частных клиентов.
+          </p>
+          <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+            <button class="btn btn-danger btn-lg">Наша Продукция</button>
+            <button class="btn btn-outline-light btn-lg">Скачать католог</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+{% endif %}

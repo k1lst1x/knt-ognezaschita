@@ -16,12 +16,13 @@ SECRET_KEY = 'django-insecure-brx3_esvewr)v)76fl-w1yi_5fxeubp_lf8zc(2(h76*acz@3)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []  # В продакшене вписать ваш домен или IP
+ALLOWED_HOSTS = ["*"]  # В продакшене вписать ваш домен или IP
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -104,6 +105,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # (Опционально) Медиа-файлы, если нужно загружать изображения/файлы от пользователей
 # MEDIA_URL = '/media/'

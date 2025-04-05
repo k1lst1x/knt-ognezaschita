@@ -1,25 +1,49 @@
 /* Примерный файл landing.css */
 
 /* Цветные фоны, аналогичные исходному дизайну */
-.bg-hero {
-	/* Градиент: left(#22282D) -> right(#901938) */
-	background: linear-gradient(to right, #22282D, #901938);
+  .bg-hero {
+    background-image: url('/static/images/banner.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 500px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .bg-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* background-color: rgba(0, 0, 0, 0.5); затемнение для читаемости */
+    z-index: 1;
+  }
+  
+  .bg-hero .container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  }
+
+  .btn {
+    border-radius: 0px !important;
   }
   
   /* Подсветка ссылок при ховере */
   .hover-red:hover {
-	color: #DE2E26 !important;
+	  color: #DE2E26 !important;
   }
   
   /* Светло-серая подложка (фон) для целой страницы, 
 	 если вы хотите, чтобы всё было похоже на min-h-screen bg-[#EDEEF0] */
   body {
-	background-color: #EDEEF0;
+	  background-color: #EDEEF0;
   }
   
   /* Карточки на белом фоне, чтобы они не сливались с общим серым фоном */
   .card {
-	background-color: #fff;
+	  background-color: #fff;
   }
   
   /* Можно добавить небольшой трюк, чтобы сайдбар казался "плавающим" 
@@ -27,9 +51,9 @@
   
   /* Пример активного пункта в сайдбаре */
   .product-item.active {
-	border: none;
-	border-left: 4px solid #DE2E26;
-	background-color: #B4B6B9;
+    border: none;
+    border-left: 4px solid #DE2E26;
+    background-color: #B4B6B9;
   }
   
   .bg-secondary-subtle1 {
