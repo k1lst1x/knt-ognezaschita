@@ -65,3 +65,6 @@ class ProductAdmin(admin.ModelAdmin):
                 obj.image.url,
             )
         return "—"
+    
+    class Media:
+        js = ("jsonlist.js",)
