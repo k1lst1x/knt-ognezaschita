@@ -1,50 +1,101 @@
-<footer class="bg-dark text-white border-top border-secondary py-5">
+<footer class="footer bg-dark text-white border-top border-secondary py-5">
   <div class="container">
+
+    <!-- верхний блок -->
     <div class="row g-4 mb-4">
+
+      <!-- Бренд + соцсети -->
       <div class="col-12 col-md-3">
         <div class="d-flex align-items-center mb-3">
           <i class="bi bi-fire text-danger fs-4 me-2"></i>
-          <span class="fs-5 fw-bold">OGNEZA</span>
+          <span class="fs-5 fw-bold">ПОЛИХИМ‑Д</span>
         </div>
-        <p class="small text-secondary">
-          Leading manufacturer of fireproof and non-combustible materials for industrial safety.
+        <p class="small">
+          Производим огнезащитные и&nbsp;негорючие материалы для промышленной безопасности.
         </p>
+
+        <!-- соц‑иконки -->
+        <div class="d-flex">
+          <a href="https://www.instagram.com/polihim" target="_blank" class="text-white fs-4 me-3"
+             aria-label="Instagram">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="https://wa.me/77001234567" target="_blank" class="text-white fs-4"
+             aria-label="WhatsApp">
+            <i class="bi bi-whatsapp"></i>
+          </a>
+        </div>
       </div>
+
+      <!-- Продукция -->
       <div class="col-6 col-md-3">
-        <h5 class="fs-6 fw-bold mb-3">Products</h5>
+        <h5 class="fs-6 fw-bold mb-3">Продукция</h5>
         <ul class="list-unstyled small text-secondary">
-          <li><a href="#" class="text-white text-decoration-none hover-red">Fire Collars</a></li>
-          <li><a href="#" class="text-white text-decoration-none hover-red">Cable Penetrations</a></li>
-          <li><a href="#" class="text-white text-decoration-none hover-red">Fireproof Sealants</a></li>
-          <li><a href="#" class="text-white text-decoration-none hover-red">Fireproof Varnishes</a></li>
-          <li><a href="#" class="text-white text-decoration-none hover-red">Fireproof Paints</a></li>
+          <li><a href="#" class="text-white text-decoration-none hover-red">Огнезащитные&nbsp;манжеты</a></li>
+          <li><a href="#" class="text-white text-decoration-none hover-red">Кабельные&nbsp;проходки</a></li>
+          <li><a href="#" class="text-white text-decoration-none hover-red">Огнезащитные&nbsp;герметики</a></li>
+          <li><a href="#" class="text-white text-decoration-none hover-red">Огнезащитные&nbsp;лаки</a></li>
+          <li><a href="#" class="text-white text-decoration-none hover-red">Огнезащитные&nbsp;краски</a></li>
         </ul>
       </div>
+
+      <!-- Компания -->
       <div class="col-6 col-md-3">
-        <h5 class="fs-6 fw-bold mb-3">Company</h5>
+        <h5 class="fs-6 fw-bold mb-3">Компания</h5>
         <ul class="list-unstyled small text-secondary">
-          <li><a href="#" class="text-white text-decoration-none hover-red">About Us</a></li>
-          <li><a href="#" class="text-white text-decoration-none hover-red">Certifications</a></li>
-          <li><a href="#" class="text-white text-decoration-none hover-red">Projects</a></li>
-          <li><a href="#" class="text-white text-decoration-none hover-red">Careers</a></li>
+          <li><a href="#" class="text-white text-decoration-none hover-red">О&nbsp;нас</a></li>
+          <li><a href="#" class="text-white text-decoration-none hover-red">Сертификаты</a></li>
+          <li><a href="#" class="text-white text-decoration-none hover-red">Проекты</a></li>
+          <li><a href="#" class="text-white text-decoration-none hover-red">Карьера</a></li>
         </ul>
       </div>
+
+      <!-- Контакты -->
       <div class="col-12 col-md-3">
-        <h5 class="fs-6 fw-bold mb-3">Contact</h5>
-        <ul class="list-unstyled small text-secondary">
+        <h5 class="fs-6 fw-bold mb-3">Информация</h5>
+        <ul class="list-unstyled small">
           <li class="mb-2">
             <i class="bi bi-telephone-fill text-danger me-2"></i>
-            +1 (555) 123-4567
+            +7&nbsp;(495)&nbsp;123‑45‑67
+          </li>
+          <li class="mb-2">
+            <i class="bi bi-envelope-fill text-danger me-2"></i>
+            sales@polihim.ru
+          </li>
+          <li class="mb-2">
+            <i class="bi bi-geo-alt-fill text-danger me-2"></i>
+            г.&nbsp;Алматы, Жетысуский&nbsp;р‑он,<br>
+            ул.&nbsp;Венецианова&nbsp;37, 3‑й&nbsp;этаж, офис&nbsp;5
           </li>
           <li>
-            <i class="bi bi-envelope-fill text-danger me-2"></i>
-            info@ogneza.com
+            <i class="bi bi-clock-fill text-danger me-2"></i>
+            Пн‑Пт:&nbsp;9:00–18:00
           </li>
         </ul>
       </div>
     </div>
-    <div class="border-top border-secondary pt-3 text-center small text-secondary">
-      © {{ now|date:"Y" }} Ogneza. All rights reserved.
+
+    <!-- карта -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <div class="ratio ratio-21x9 rounded shadow-sm">
+          <!-- замените координаты на точные при необходимости -->
+          <!-- <iframe
+            src="https://yandex.ru/map-widget/v1/?ll=76.897,43.289&z=16&pt=76.897,43.289,pm2rdm"
+            loading="lazy" frameborder="0" allowfullscreen
+            title="Карта расположения"></iframe> -->
+          <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A852a93248880399137a2eb62bf956d443fa2d792afb7b84d7c2f06b3f09250bc&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
+        </div>
+        <p class="small text-center text-secondary mt-2">
+          Завод&nbsp;· Центральный&nbsp;офис&nbsp;· Научная&nbsp;лаборатория&nbsp;· Производство
+        </p>
+      </div>
+    </div>
+
+    <!-- правовая строка -->
+    <div class="border-top border-secondary pt-3 text-center small text-secondary legal-text">
+      Все права защищены © 2025&nbsp;ООО&nbsp;«ПОЛИХИМ‑Д» &nbsp;
+      ОГРН 1175275035319&nbsp;| ИНН 5249156277&nbsp;| КПП 524901001
     </div>
   </div>
 </footer>
