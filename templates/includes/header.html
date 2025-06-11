@@ -2,7 +2,7 @@
 
 <style>
 .hero-wrapper {
-  background-image: url('{% static "images/banner.png" %}');
+  background-image: url('{% static "images/banner_new.jpg" %}');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -20,6 +20,34 @@
 
 body {
     font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+}
+
+.custom-dropdown-menu {
+  background-color: transparent !important;
+  backdrop-filter: none !important; /* если было размытие */
+  box-shadow: none !important;
+  border: none !important;
+  left: -23px !important;
+  top: -60% !important;
+}
+
+.custom-dropdown-menu .dropdown-item {
+  color: #fff !important;
+  font-size: 1.25rem;
+  padding: 0.75rem 1.5rem;
+  transition: background 0.2s;
+  opacity: 0.8;
+}
+
+.custom-dropdown-menu .dropdown-item:hover,
+.custom-dropdown-menu .dropdown-item:focus {
+  background: rgba(255,255,255,0.08);
+  color: #fff !important;
+  opacity: 1;
+}
+
+.dropdown-toggle::after {
+  display: none !important;
 }
 
 .btn-rounded {
@@ -58,7 +86,7 @@ body {
   <div class="hero-wrapper">
 {% endif %}
 
-<header class="text-white py-3 {% if not is_homepage %}bg-dark{% endif %}">
+<header class="text-white py-3 {% if not is_homepage %}bg-dark{% endif %} mb-5">
   <div class="container d-flex flex-wrap justify-content-between align-items-center">
     <!-- Логотип -->
     <div class="d-flex align-items-center">
@@ -68,12 +96,22 @@ body {
     </div>
 
     <!-- Навигация (для больших экранов) -->
-    <nav class="d-none d-md-flex gap-5 align-items-center">
+    <nav class="d-none d-md-flex gap-5 align-items-center ms-auto me-[-100px]">
         <a href="#" class="text-white text-decoration-none hover-red">Главная</a>
         <a href="#" class="text-white text-decoration-none hover-red">Контакты</a>
         <a href="#" class="text-white text-decoration-none hover-red">Доставка</a>
         <a href="#" class="text-white text-decoration-none hover-red">Отзывы</a>
-        <a href="#" class="text-white text-decoration-none hover-red">О нас</a>
+        <div class="dropdown">
+          <a href="#" class="dropdown-toggle text-white" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            О нас
+            <i class="bi bi-chevron-down ms-1 fs-6"></i>
+          </a>
+        <ul class="dropdown-menu custom-dropdown-menu mt-3" aria-labelledby="aboutDropdown">
+            <li><a class="dropdown-item text-white fs-6" href="#">Сертификаты</a></li>
+            <li><a class="dropdown-item text-white fs-6" href="#">Объекты</a></li>
+            <li><a class="dropdown-item text-white fs-6" href="#">Партнеры</a></li>
+        </ul>
+        </div>
           <button class="text-white border border-white rounded-[10px] px-6 py-2 flex items-center space-x-2 hover:bg-gray-300 hover:text-black transition">
             <span>Продукция</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -116,12 +154,14 @@ body {
         <div class="col-12 col-md-8 mx-auto text-center">
           <h1 class="display-6 fw-bold mb-4">Решения противопожарной защиты</h1>
           <p class="lead mb-4 fs-5">
-            Производим и поставляем сертифицированные огнезащитные материалы для конструкций, кабелей и различных поверхностей по ГОСТ и ТУ
+            Производим и поставляем сертифицированные огнезащитные материалы <br> для конструкций, кабелей и различных поверхностей по ГОСТ и ТУ
           </p>
-          <div class="d-flex flex-column flex-sm-row gap-5 justify-content-center mt-5">
+          <div class="d-flex flex-column flex-sm-row gap-5 justify-content-center mt-20">
             <div class="d-flex flex-column flex-sm-row gap-5 justify-content-center">
-                <a href="#" class="btn btn-danger btn-lg rounded-pill btn-rounded btn-lg-custom">ВЫБРАТЬ СОСТАВ</a>
-                <button class="btn btn-link text-white btn-lg rounded-pill btn-rounded btn-lg-custom text-decoration-none">КАТАЛОГ PDF</button>
+                <a href="#" class="btn btn-danger btn-lg rounded-pill btn-rounded btn-lg-custom">Выбрать состав</a>
+                <button class="btn btn-link text-white btn-lg rounded-pill btn-rounded btn-lg-custom text-decoration-none">Каталог PDF
+                  <i class="bi bi-download ms-3"></i>
+                </button>
             </div>
         </div>
       </div>

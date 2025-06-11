@@ -1,101 +1,92 @@
-<footer class="footer bg-dark text-white border-top border-secondary py-5">
+{% load static %}
+
+<style>
+.footer a.text-secondary:hover {
+  color: #f8f9fa !important;
+  text-decoration: underline !important;
+}
+
+.footer h5 {
+  font-size: 1.1rem !important;
+}
+.footer .bi {
+  vertical-align: middle !important;
+}
+</style>
+
+<footer class="footer bg-dark text-white pt-5 pb-3">
   <div class="container">
-
-    <!-- верхний блок -->
-    <div class="row g-4 mb-4">
-
-      <!-- Бренд + соцсети -->
-      <div class="col-12 col-md-3">
-        <div class="d-flex align-items-center mb-3">
-          <i class="bi bi-fire text-danger fs-4 me-2"></i>
-          <span class="fs-5 fw-bold">ПОЛИХИМ‑Д</span>
-        </div>
-        <p class="small">
-          Производим огнезащитные и&nbsp;негорючие материалы для промышленной безопасности.
-        </p>
-
-        <!-- соц‑иконки -->
-        <div class="d-flex">
-          <a href="https://www.instagram.com/polihim" target="_blank" class="text-white fs-4 me-3"
-             aria-label="Instagram">
-            <i class="bi bi-instagram"></i>
-          </a>
-          <a href="https://wa.me/77001234567" target="_blank" class="text-white fs-4"
-             aria-label="WhatsApp">
-            <i class="bi bi-whatsapp"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- Продукция -->
-      <div class="col-6 col-md-3">
-        <h5 class="fs-6 fw-bold mb-3">Продукция</h5>
-        <ul class="list-unstyled small text-secondary">
-          <li><a href="#" class="text-white text-decoration-none hover-red">Огнезащитные&nbsp;манжеты</a></li>
-          <li><a href="#" class="text-white text-decoration-none hover-red">Кабельные&nbsp;проходки</a></li>
-          <li><a href="#" class="text-white text-decoration-none hover-red">Огнезащитные&nbsp;герметики</a></li>
-          <li><a href="#" class="text-white text-decoration-none hover-red">Огнезащитные&nbsp;лаки</a></li>
-          <li><a href="#" class="text-white text-decoration-none hover-red">Огнезащитные&nbsp;краски</a></li>
-        </ul>
-      </div>
-
-      <!-- Компания -->
-      <div class="col-6 col-md-3">
-        <h5 class="fs-6 fw-bold mb-3">Компания</h5>
-        <ul class="list-unstyled small text-secondary">
-          <li><a href="#" class="text-white text-decoration-none hover-red">О&nbsp;нас</a></li>
-          <li><a href="#" class="text-white text-decoration-none hover-red">Сертификаты</a></li>
-          <li><a href="#" class="text-white text-decoration-none hover-red">Проекты</a></li>
-          <li><a href="#" class="text-white text-decoration-none hover-red">Карьера</a></li>
-        </ul>
-      </div>
-
-      <!-- Контакты -->
-      <div class="col-12 col-md-3">
-        <h5 class="fs-6 fw-bold mb-3">Информация</h5>
-        <ul class="list-unstyled small">
-          <li class="mb-2">
-            <i class="bi bi-telephone-fill text-danger me-2"></i>
-            +7&nbsp;(495)&nbsp;123‑45‑67
-          </li>
-          <li class="mb-2">
-            <i class="bi bi-envelope-fill text-danger me-2"></i>
-            sales@polihim.ru
-          </li>
-          <li class="mb-2">
-            <i class="bi bi-geo-alt-fill text-danger me-2"></i>
-            г.&nbsp;Алматы, Жетысуский&nbsp;р‑он,<br>
-            ул.&nbsp;Венецианова&nbsp;37, 3‑й&nbsp;этаж, офис&nbsp;5
-          </li>
-          <li>
-            <i class="bi bi-clock-fill text-danger me-2"></i>
-            Пн‑Пт:&nbsp;9:00–18:00
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- карта -->
     <div class="row mb-4">
-      <div class="col-12">
-        <div class="ratio ratio-21x9 rounded shadow-sm">
-          <!-- замените координаты на точные при необходимости -->
-          <!-- <iframe
-            src="https://yandex.ru/map-widget/v1/?ll=76.897,43.289&z=16&pt=76.897,43.289,pm2rdm"
-            loading="lazy" frameborder="0" allowfullscreen
-            title="Карта расположения"></iframe> -->
-          <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A852a93248880399137a2eb62bf956d443fa2d792afb7b84d7c2f06b3f09250bc&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
+      <!-- 1. Огнезащита объектов -->
+      <div class="col-12 col-md-3 mb-4 mb-md-0">
+        <h5 class="fw-bold mb-3">Огнезащита объектов</h5>
+        <ul class="list-unstyled text-secondary mb-3">
+          <li><a href="#" class="text-secondary text-decoration-none mb-2">Для металлоконструкций</a></li>
+          <li><a href="#" class="text-secondary text-decoration-none d-inline-block mb-2">Огнезащитная обработка дерева</a></li>
+          <li><a href="#" class="text-secondary text-decoration-none d-inline-block mb-2">Защита кабельных линий от огня</a></li>
+          <li><a href="#" class="text-secondary text-decoration-none d-inline-block mb-2">Все продукты</a></li>
+        </ul>
+        <div class="mb-2 fw-bold">Социальные сети</div>
+        <div>
+          <a href="#" class="text-secondary fs-5 me-3" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-secondary fs-5" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
         </div>
-        <p class="small text-center text-secondary mt-2">
-          Завод&nbsp;· Центральный&nbsp;офис&nbsp;· Научная&nbsp;лаборатория&nbsp;· Производство
-        </p>
+      </div>
+
+      <!-- 2. Информация -->
+      <div class="col-12 col-md-3 mb-4 mb-md-0">
+        <h5 class="fw-bold mb-3">Информация</h5>
+        <ul class="list-unstyled text-secondary">
+          <li><a href="#" class="text-secondary text-decoration-none mb-2 d-inline-block">Контакты</a></li>
+          <li><a href="#" class="text-secondary text-decoration-none mb-2 d-inline-block">Доставка</a></li>
+          <li><a href="#" class="text-secondary text-decoration-none mb-2 d-inline-block">Обратная связь</a></li>
+          <li><a href="#" class="text-secondary text-decoration-none mb-2 d-inline-block">Способы оплаты</a></li>
+        </ul>
+      </div>
+
+      <!-- 3. О компании -->
+      <div class="col-12 col-md-3 mb-4 mb-md-0">
+        <h5 class="fw-bold mb-3">О компании</h5>
+        <ul class="list-unstyled text-secondary">
+          <li><a href="#" class="text-secondary text-decoration-none d-inline-block mb-2">О нас</a></li>
+          <li><a href="#" class="text-secondary text-decoration-none d-inline-block mb-2">Сертификаты</a></li>
+          <li><a href="#" class="text-secondary text-decoration-none d-inline-block mb-2">Проекты</a></li>
+          <li><a href="#" class="text-secondary text-decoration-none d-inline-block mb-2">Отзывы клиентов</a></li>
+        </ul>
+      </div>
+
+      <!-- 4. Контакты -->
+      <div class="col-12 col-md-3">
+        <h5 class="fw-bold mb-3">Контакты</h5>
+        <div class="text-secondary mb-2">Связаться с нами</div>
+        <div class="mb-2">
+          <i class="bi bi-telephone-fill text-danger me-2"></i>
+          <span class="text-secondary">+7 (495) 123-45-67</span>
+        </div>
+        <div class="mb-2">
+          <i class="bi bi-envelope-fill text-danger me-2"></i>
+          <span class="text-secondary">sales@polihim.ru</span>
+        </div>
+
+        <div class="fw-bold text-secondary mt-3 mb-1">Наш офис и склад</div>
+        <div class="text-secondary mb-2">
+          г. Алматы, Жетысуский район,<br>
+          ул. Венецианова 37, 3-й этаж, офис 5
+        </div>
+
+        <div class="fw-bold text-secondary mt-3 mb-1">Время работы</div>
+        <div class="text-secondary">
+          Пн-Пт: 9:00–18:00<br>
+          Сб-Вс: - выходные
+        </div>
       </div>
     </div>
 
-    <!-- правовая строка -->
-    <div class="border-top border-secondary pt-3 text-center small text-secondary legal-text">
-      Все права защищены © 2025&nbsp;ООО&nbsp;«ПОЛИХИМ‑Д» &nbsp;
-      ОГРН 1175275035319&nbsp;| ИНН 5249156277&nbsp;| КПП 524901001
+    <!-- Линия и копирайт -->
+    <div class="border-top border-secondary pt-3 text-secondary small" style="opacity:0.7;">
+      COPYRIGHT © 2025 «KnT»<br>
+      ОГРН 1175275035319 | ИНН 5249156277 |<br>
+      КПП 524901001
     </div>
   </div>
 </footer>
