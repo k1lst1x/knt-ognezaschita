@@ -21,40 +21,13 @@
   <!-- Основной контент с сайдбаром -->
   <section class="py-5">
     <div class="container">
-      <div class="row">
-        <!-- Сайдбар -->
-        <aside class="col-12 col-md-4 col-lg-3 mb-4 mb-md-0">
-          <div class="card mb-4">
-            <div class="card-header bg-dark text-white">Наши продукты</div>
-            <ul class="list-group list-group-flush" id="productSidebar">
-              <!-- js заполнит список -->
-            </ul>
-          </div>
+      <div class="row justify-content-center">
 
-          <!-- Contact Card -->
-          <div class="card bg-dark text-white">
-            <div class="card-body">
-              <h5 class="card-title">Нужна помощь?</h5>
-              <p class="card-text small">
-                Наши технические специалисты помогут вам выбрать подходящее решение по огнезащите.
-              </p>
-              <div class="mb-2 small">
-                <i class="bi bi-telephone-fill text-danger me-2"></i>
-                +1 (555) 123-4567
-              </div>
-              <div class="mb-3 small">
-                <i class="bi bi-envelope-fill text-danger me-2"></i>
-                info@ogneza.com
-              </div>
-              <button class="btn btn-danger w-100">Связаться с нами</button>
-            </div>
           </div>
-        </aside>
 
         <!-- Основная колонка -->
-        <div class="col-12 col-md-8 col-lg-9">
-          <div class="card mb-4">
-            <div class="card-body">
+        <div class="col-12 col-md-10 col-lg-8 mx-auto">
+          <div class="mb-4">
               <div class="d-flex align-items-center mb-3">
                 <h2 id="productName" class="h4 fw-bold me-3 mb-0">Название продукта</h2>
                 <div
@@ -69,8 +42,8 @@
               <div class="row g-4 mb-4">
                 <div class="col-12 col-md-6">
                   <h5 class="mb-3 d-flex align-items-center gap-2">
-                    <i class="bi bi-shield-fill-exclamation text-danger fs-5"></i>
-                    Ключевые преимущества
+                    {% comment %} <i class="bi bi-shield-fill-exclamation text-danger fs-5"></i> {% endcomment %}
+                    Терморасширяющаяся огнезащитная краска:
                   </h5>
                   <ul id="productBenefits" class="list-unstyled">
                     <!-- js заполнит список преимуществ -->
@@ -81,137 +54,23 @@
                     class="border rounded overflow-hidden position-relative"
                     style="height: 300px;"
                   >
-                    <img
-                      id="productImage"
-                      src=""
-                      alt=""
-                      class="w-100 h-100"
-                      style="object-fit: cover;"
-                    />
+                    <img id="productImage" src="" alt="" class="w-100 h-100" style="object-fit: cover;"/>
                   </div>
-                </div>
-              </div>
-
-              <div class="d-flex flex-column flex-sm-row gap-3">
-                <button class="btn btn-danger">Запросить спецификацию</button>
-                <button class="btn btn-outline-dark">Скачать брошюру</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Сертификаты -->
-          <div class="card">
-            <div class="card-body">
-              <div class="d-flex align-items-center mb-3">
-                <h2 class="h4 fw-bold me-3 mb-0">Сертификаты соответствия</h2>
-                <div
-                  class="flex-grow-1"
-                  style="height: 2px; max-width: 120px; background-color: #DE2E26;"
-                ></div>
-              </div>
-
-              <div class="row text-center">
-                <div class="col-6 col-md-3 mb-4">
-                  <div
-                    class="rounded-circle bg-light d-flex justify-content-center align-items-center mx-auto mb-2"
-                    style="width:80px; height:80px;"
-                  >
-                    <i class="bi bi-info-circle fs-3 text-danger"></i>
-                  </div>
-                  <span class="small">Сертификат 1</span>
-                </div>
-                <div class="col-6 col-md-3 mb-4">
-                  <div
-                    class="rounded-circle bg-light d-flex justify-content-center align-items-center mx-auto mb-2"
-                    style="width:80px; height:80px;"
-                  >
-                    <i class="bi bi-info-circle fs-3 text-danger"></i>
-                  </div>
-                  <span class="small">Сертификат 2</span>
-                </div>
-                <div class="col-6 col-md-3 mb-4">
-                  <div
-                    class="rounded-circle bg-light d-flex justify-content-center align-items-center mx-auto mb-2"
-                    style="width:80px; height:80px;"
-                  >
-                    <i class="bi bi-info-circle fs-3 text-danger"></i>
-                  </div>
-                  <span class="small">Сертификат 3</span>
-                </div>
-                <div class="col-6 col-md-3 mb-4">
-                  <div
-                    class="rounded-circle bg-light d-flex justify-content-center align-items-center mx-auto mb-2"
-                    style="width:80px; height:80px;"
-                  >
-                    <i class="bi bi-info-circle fs-3 text-danger"></i>
-                  </div>
-                  <span class="small">Сертификат 4</span>
                 </div>
               </div>
 
             </div>
           </div>
 
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- Why Choose Us -->
   <section class="bg-dark text-white py-5">
     <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="h3 fw-bold">Почему выбирают КНТ</h2>
-        <div
-          class="mx-auto"
-          style="height: 2px; width: 100px; background-color: #DE2E26;"
-        ></div>
-      </div>
+      
 
-      <div class="row g-4">
-        <div class="col-12 col-md-4">
-          <div class="p-4 bg-secondary-subtle1 h-100 text-center text-light rounded">
-            <div
-              class="mx-auto d-flex justify-content-center align-items-center rounded-circle mb-3"
-              style="width:64px; height:64px; background-color: rgba(222,46,38,0.1);"
-            >
-              <i class="bi bi-shield-fill-exclamation fs-3 text-danger"></i>
-            </div>
-            <h3 class="h6 fw-bold">Сертифицированное качество</h3>
-            <p class="small">
-              Вся наша продукция проходит испытания и сертификацию в соответствии с международными стандартами пожарной безопасности.
-            </p>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div class="p-4 bg-secondary-subtle1 h-100 text-center text-light rounded">
-            <div
-              class="mx-auto d-flex justify-content-center align-items-center rounded-circle mb-3"
-              style="width:64px; height:64px; background-color: rgba(222,46,38,0.1);"
-            >
-              <i class="bi bi-fire fs-3 text-danger"></i>
-            </div>
-            <h3 class="h6 fw-bold">Экспертные решения</h3>
-            <p class="small">
-              Наша команда специалистов по огнезащите подберёт индивидуальное решение под ваши задачи.
-            </p>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div class="p-4 bg-secondary-subtle1 h-100 text-center text-light rounded">
-            <div
-              class="mx-auto d-flex justify-content-center align-items-center rounded-circle mb-3"
-              style="width:64px; height:64px; background-color: rgba(222,46,38,0.1);"
-            >
-              <i class="bi bi-info-circle fs-3 text-danger"></i>
-            </div>
-            <h3 class="h6 fw-bold">Техническая поддержка</h3>
-            <p class="small">
-              Полная техническая поддержка — от подбора и спецификации до установки и последующего обслуживания.
-            </p>
-          </div>
-        </div>
-      </div>
+    
+ 
     </div>
   </section>
 {% endblock %}

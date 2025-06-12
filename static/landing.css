@@ -57,7 +57,8 @@
   /* Светло-серая подложка (фон) для целой страницы, 
 	 если вы хотите, чтобы всё было похоже на min-h-screen bg-[#EDEEF0] */
   body {
-	  background-color: #EDEEF0;
+	  /* background-color: #EDEEF0; */
+    background-color: #f6f4f5;
   }
   
   /* Карточки на белом фоне, чтобы они не сливались с общим серым фоном */
@@ -73,10 +74,12 @@
     border: none;
     border-left: 4px solid #DE2E26;
     background-color: #B4B6B9;
+    /* background-color: #ffffff; */
   }
   
   .bg-secondary-subtle1 {
     background-color: #343A40 !important;
+    /* background-color: #ffffff; */
   }
 
   /* Пример стилей для иконок или отступов, если нужно что-то скорректировать */
