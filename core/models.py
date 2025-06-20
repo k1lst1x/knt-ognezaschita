@@ -5,35 +5,31 @@ from django.db import models
 # from django.contrib.postgres.fields import ArrayField
 
 
+class Category(models.Model):
+    """Категория товаров"""
+    name = models.CharField("Название", max_length=100, unique=True)
+    slug = models.SlugField("URL", unique=True)
+    description = models.TextField("Описание", blank=True)
+
+    class Meta:
+        verbose_name = "Категория"
+        verbose_name_plural = "Категории"
+
+    def __str__(self):
+        return self.name
+
+
 class Product(models.Model):
-    """
-    One fire‑protection product (e.g. “Fire Collars”).
-    Works on SQLite during local dev; ready for PostgreSQL in production.
-    """
-    slug = models.SlugField(                       # “fire-collars”
-        primary_key=True,
-        max_length=100,
-        help_text="URL‑friendly unique ID"
-    )
+    slug = models.SlugField(primary_key=True, max_length=100, help_text="URL‑friendly unique ID")
+    category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name='products', verbose_name="Категория")
     name = models.CharField(max_length=255)
     description = models.TextField()
-
-    # Stores the list of bullet‑point benefits from your JS sample.
-    # JSONField works on every supported DB, including SQLite.
     benefits = models.JSONField(default=list, blank=True)
-
-    # If you already keep images in /static, switch to ImageField later
-    # and use MEDIA_ROOT / MEDIA_URL for proper uploads.
-    image = models.ImageField(
-        upload_to="products/",
-        blank=True,
-        null=True
-    )
-
-    # “Service” fields
+    image = models.ImageField(upload_to="products/", blank=True, null=True)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     edited_at  = models.DateTimeField(auto_now=True)
+    specs = models.JSONField("Технические характеристики", default=list, blank=True)
 
     class Meta:
         ordering = ["-created_at"]
@@ -42,4 +38,25 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    @staticmethod
+    def get_default_specs():
+        return [
+            {"Параметр": "Внешний вид", "Значение": "Матовое покрытие без трещин, кратеров и др"},
+            {"Параметр": "Цвет", "Значение": "Белый (оттенок не нормируется)"},
+            {"Параметр": "Сухой остаток", "Значение": "≥ 70%"},
+            {"Параметр": "Плотность", "Значение": "1,1 - 1,15 кг/л"},
+            {"Параметр": "Разбавитель", "Значение": "Вода"},
+            {"Параметр": "Огнезащитные свойства", "Значение": "Соответствует 1, 2, 3 группе ОЗ при соответствующей толщине"},
+            {"Параметр": "Температурный диапазон эксплуатации", "Значение": "-35℃  до +55℃"},
+            {"Параметр": "Время высыхания", "Значение": "Межслойная сушка: 3-6 ч при +20℃ и влажности ≤ 60%\nПолное высыхание: 48ч"},
+            {"Параметр": "Толщина одного слоя", "Значение": "Первый слой: 500мкм\nПоследующие: до 1500мкм"},
+            {"Параметр": "Теоретический расход", "Значение": "5,01 кг/м² (OЭ 90 мин, металл 2,4мм)\n4,09 кг/м² (OЭ 90 мин, металл 5,8мм)\n6,29 кг/м² (OЭ 120 мин, металл 3,8мм)"},
+        ]
+
+    def save(self, *args, **kwargs):
+        # Если спецификации не заданы, подставляем дефолтные
+        if not self.specs:
+            self.specs = self.get_default_specs()
+        super().save(*args, **kwargs)
 

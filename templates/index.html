@@ -1,67 +1,148 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-  <!-- Hero-секция -->
-  <section class="bg-hero text-white py-5 d-none">
-    <div class="container">
-      <div class="col-12 col-md-8 mx-auto text-center">
-        <h1 class="display-4 fw-bold mb-3">Fire Protection Solutions</h1>
-        <p class="lead mb-4">
-          Production of fireproof and non-combustible materials – fire collars, cable
-          penetrations, sealants, varnishes, and paints.
-        </p>
-        <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
-          <button class="btn btn-danger">Explore Products</button>
-          <button class="btn btn-outline-light">Learn More</button>
+<section class="py-5">
+  <div class="container">
+    <div class="row">
+      <!-- Сайдбар -->
+      <aside class="col-12 col-md-4 col-lg-3 mb-4 mb-md-0">
+        <div class="card mb-4">
+          <div class="card-header bg-dark text-white">Категории</div>
+          <ul class="list-group list-group-flush" id="categorySidebar">
+            <li class="list-group-item {% if not selected_category %}active{% endif %}">
+              <a href="{% url 'index' %}" class="text-decoration-none d-block {% if not selected_category %}text-danger fw-bold{% else %}text-dark{% endif %}">Все товары</a>
+            </li>
+            {% for cat in categories %}
+            <li class="list-group-item {% if selected_category and selected_category.id == cat.id %}active{% endif %}">
+              <a href="{% url 'index' %}?category={{ cat.slug }}" class="text-decoration-none d-block {% if selected_category and selected_category.id == cat.id %}text-danger fw-bold{% else %}text-dark{% endif %}">
+                {{ cat.name }}
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Основной контент с сайдбаром -->
-  <section class="py-5">
-    <div class="container">
-      <div class="row justify-content-center">
-
+        <!-- Contact Card -->
+        <div class="card bg-dark text-white">
+          <div class="card-body">
+            <h5 class="card-title">Нужна помощь?</h5>
+            <p class="card-text small">
+              Наши специалисты помогут вам выбрать оптимальное решение.
+            </p>
+            <div class="mb-2 small">
+              <i class="bi bi-telephone-fill text-danger me-2"></i>
+              +1 (555) 123-4567
+            </div>
+            <div class="mb-3 small">
+              <i class="bi bi-envelope-fill text-danger me-2"></i>
+              info@ogneza.com
+            </div>
+            <button class="btn btn-danger w-100">Связаться с нами</button>
           </div>
+        </div>
+      </aside>
 
-        <!-- Основная колонка -->
-        <div class="col-12 col-md-10 col-lg-8 mx-auto">
-          <div class="mb-4">
-              <div class="d-flex align-items-center mb-3">
-                <h2 id="productName" class="h4 fw-bold me-3 mb-0">Название продукта</h2>
-                <div
-                  class="flex-grow-1"
-                  style="height: 2px; max-width: 120px; background-color: #DE2E26;"
-                ></div>
-              </div>
-              <p id="productDescription" class="text-secondary">
-                Здесь будет описание продукта...
-              </p>
-
-              <div class="row g-4 mb-4">
-                <div class="col-12 col-md-6">
-                  <h5 class="mb-3 d-flex align-items-center gap-2">
-                    {% comment %} <i class="bi bi-shield-fill-exclamation text-danger fs-5"></i> {% endcomment %}
-                    Терморасширяющаяся огнезащитная краска:
-                  </h5>
-                  <ul id="productBenefits" class="list-unstyled">
-                    <!-- js заполнит список преимуществ -->
-                  </ul>
+      <!-- Основная колонка -->
+      <div class="col-12 col-md-8 col-lg-9">
+        {% if products %}
+        <div class="row g-4" id="productList">
+          {% for product in products %}
+          <div class="col-12">
+            <div class="card product-card mb-3">
+              <div class="row g-0">
+                <div class="col-md-4 d-flex align-items-stretch">
+                  <div class="h-100 w-100 d-flex align-items-center justify-content-center" style="background: #fafbfc;">
+                    {% if product.image %}
+                    <img src="{{ product.image.url }}" class="img-fluid rounded-start" style="max-height:200px; object-fit:cover;" alt="{{ product.name }}">
+                    {% else %}
+                    <span class="text-secondary small">Нет изображения</span>
+                    {% endif %}
+                  </div>
                 </div>
-                <div class="col-12 col-md-6">
-                  <div
-                    class="border rounded overflow-hidden position-relative"
-                    style="height: 300px;"
-                  >
-                    <img id="productImage" src="" alt="" class="w-100 h-100" style="object-fit: cover;"/>
+                <div class="col-md-8">
+                  <div class="card-body h-100 d-flex flex-column justify-content-between">
+                    <div>
+                      <h5 class="card-title mb-2 text-danger">{{ product.name }}</h5>
+                      <div class="mb-2 text-secondary small">{{ product.category.name }}</div>
+                      <p class="card-text mb-2">{{ product.description|truncatechars:160 }}</p>
+                      {% if product.benefits %}
+                      <ul class="mb-2 ps-3">
+                        {% for b in product.benefits|slice:":3" %}
+                          <li>{{ b }}</li>
+                        {% endfor %}
+                      </ul>
+                      {% endif %}
+                    </div>
+                    <div class="mt-2">
+                      <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#productModal{{ product.slug }}">
+                        Подробнее
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
 
-  </section>
-
+          <!-- Modal for Product -->
+          <div class="modal fade" id="productModal{{ product.slug }}" tabindex="-1" aria-labelledby="modalLabel{{ product.slug }}" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title text-danger" id="modalLabel{{ product.slug }}">{{ product.name }}</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="row g-4">
+                    <div class="col-12 col-md-6">
+                      {% if product.image %}
+                      <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid rounded mb-3 w-100" style="object-fit:cover;"/>
+                      {% endif %}
+                      <p>{{ product.description }}</p>
+                      {% if product.benefits %}
+                      <h6 class="fw-bold mt-3">Преимущества:</h6>
+                      <ul>
+                        {% for b in product.benefits %}
+                          <li>{{ b }}</li>
+                        {% endfor %}
+                      </ul>
+                      {% endif %}
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <h6 class="fw-bold mb-2">Технические характеристики</h6>
+                      <div class="table-responsive">
+                        <table class="table table-sm table-bordered mb-3">
+                          <tbody>
+                            {% for spec in product.specs %}
+                            <tr>
+                              <td class="fw-bold" style="min-width:150px;">{{ spec.Параметр }}</td>
+                              <td>{{ spec.Значение|linebreaksbr }}</td>
+                            </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-between flex-wrap gap-2">
+                  <div>
+                    <button class="btn btn-danger">Запросить спецификацию</button>
+                    <button class="btn btn-outline-dark">Скачать брошюру</button>
+                  </div>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% else %}
+        <div class="alert alert-secondary">Товары в данной категории отсутствуют.</div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock %}

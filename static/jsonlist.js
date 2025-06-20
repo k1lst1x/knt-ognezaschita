@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const input = document.createElement("input");
     input.type = "text";
     input.className = "form-control mb-2";
-    input.placeholder = "Add benefit and press Enter";
+    input.placeholder = "Добавьте преимущество и нажмите Enter";
 
     input.addEventListener("keydown", (e) => {
         if (e.key === "Enter" && input.value.trim() !== "") {
@@ -43,7 +43,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const removeBtn = document.createElement("button");
         removeBtn.type = "button";
-        removeBtn.className = "btn-close";
+        removeBtn.className = "btn btn-outline-danger btn-sm ms-2";
+        removeBtn.innerText = "Удалить";
         removeBtn.onclick = () => {
             li.remove();
             syncToTextarea();
