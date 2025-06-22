@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="py-5">
+  <div class="container">
+    {% comment %} Сначала собираем категории с их товарами {% endcomment %}
+    {% regroup products by category as categories_list %}
+
+    {% for cat in categories_list %}
+      <div class="mb-5">
+        <div class="d-flex align-items-center mb-4">
+          <h2 class="h3 fw-bold me-3 mb-0 text-danger">{{ cat.grouper.name }}</h2>
+          <div class="flex-grow-1" style="height:2px; max-width:120px; background-color:#DE2E26;"></div>
+        </div>
+
+        {% for product in cat.list %}
+        <div class="card mb-4 shadow-sm border-0">
+          <div class="row g-0 align-items-center">
+            <div class="col-12 col-md-4 d-flex align-items-stretch">
+              <div class="h-100 w-100 d-flex align-items-center justify-content-center" style="background: #fafbfc; min-height:220px;">
+                {% if product.image %}
+                  <img src="{{ product.image.url }}" class="img-fluid rounded-start" style="max-height:220px; object-fit:cover;" alt="{{ product.name }}">
+                {% else %}
+                  <span class="text-secondary small">Нет изображения</span>
+                {% endif %}
+              </div>
+            </div>
+            <div class="col-12 col-md-8">
+              <div class="card-body py-4 py-md-3 h-100 d-flex flex-column justify-content-between">
+                <div>
+                  <h5 class="card-title mb-1 text-danger">{{ product.name }}</h5>
+                  <div class="mb-2 text-secondary small">{{ product.category.name }}</div>
+                  <p class="card-text mb-3">{{ product.description }}</p>
+                  {% if product.benefits %}
+                    <h6 class="mb-2 fw-bold d-flex align-items-center gap-2">
+                      <i class="bi bi-shield-fill-exclamation text-danger fs-5"></i>
+                      Ключевые преимущества
+                    </h6>
+                    <ul class="mb-2 ps-3" style="list-style:none;">
+                      {% for b in product.benefits %}
+                        <li class="mb-1">
+                          <i class="bi bi-chevron-right text-danger me-1"></i>
+                          {{ b }}
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+                </div>
+                <div class="mt-2">
+                  <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#productModal{{ product.slug }}">
+                    Подробнее
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal для подробностей (можно убрать если не нужен) -->
+        <div class="modal fade" id="productModal{{ product.slug }}" tabindex="-1" aria-labelledby="modalLabel{{ product.slug }}" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title text-danger" id="modalLabel{{ product.slug }}">{{ product.name }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+              </div>
+              <div class="modal-body">
+                <div class="row g-4">
+                  <div class="col-12 col-md-6">
+                    {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid rounded mb-3 w-100" style="object-fit:cover;"/>
+                    {% endif %}
+                    <p>{{ product.description }}</p>
+                    {% if product.benefits %}
+                    <h6 class="fw-bold mt-3">Преимущества:</h6>
+                    <ul>
+                      {% for b in product.benefits %}
+                        <li>
+                          <i class="bi bi-chevron-right text-danger me-1"></i>
+                          {{ b }}
+                        </li>
+                      {% endfor %}
+                    </ul>
+                    {% endif %}
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <h6 class="fw-bold mb-2">Технические характеристики</h6>
+                    <div class="table-responsive">
+                      <table class="table table-sm table-bordered mb-3">
+                        <tbody>
+                          {% for spec in product.specs %}
+                          <tr>
+                            <td class="fw-bold" style="min-width:150px;">{{ spec.Параметр }}</td>
+                            <td>{{ spec.Значение|linebreaksbr }}</td>
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer d-flex justify-content-between flex-wrap gap-2">
+                <div>
+                  <button class="btn btn-danger">Запросить спецификацию</button>
+                  <button class="btn btn-outline-dark">Скачать брошюру</button>
+                </div>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% endblock %}
+
