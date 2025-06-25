@@ -36,3 +36,12 @@ def index(request):
             "products": products,
         }
     )
+
+def home(request):
+    return render(
+        request,
+        'home.html',
+        {
+            'is_homepage': True,
+        }
+    )
