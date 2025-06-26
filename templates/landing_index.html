@@ -106,7 +106,7 @@
 .contact-button-fixed {
   position: fixed;
   top: 90%;
-  right: 0;
+  right: 24px;
   transform: translateY(-50%);
   z-index: 1100;
   padding: 12px;
@@ -241,6 +241,12 @@
     top: 10px;
     right: 16px;
     font-size: 24px;
+  }
+}
+
+@media (max-width: 991px) {
+  .contact-button-fixed {
+    right: 8px;
   }
 }
 </style>
