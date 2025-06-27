@@ -16,6 +16,7 @@
 html,
 body {
     font-family: var(--bs-font-sans-serif);
+
 }
 
 .legal-text {
@@ -101,3 +102,5 @@ body {
 
 
 /* ... при необходимости можете добавить дополнительные классы ... */
+
+

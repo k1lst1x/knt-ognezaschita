@@ -7,7 +7,7 @@
     Огнезащита с <span class="text-danger fw-semibold">гарантией</span> качества по ГОСТ и ТУ
   </h2>
 
-  <div class="row row-cols-1 row-cols-md-2 g-4">
+  <div class="row row-cols-1 row-cols-md-2 g-5">
 
     <div class="col">
       <div class="fade-in">
@@ -95,12 +95,61 @@
   </div>
 </div>
 
+<!-- Заголовок и описание -->
+
+
+<div class="container my-5">
+  <h2 class="mb-4" style="font-size:1.8rem;">
+    Надёжная <span class="text-danger fw-semibold">ОГНЕЗАЩИТА</span> по стандартам
+  </h2>
+  <div class="fs-5 mb-5">
+    Разрабатываем и поставляем составы с учётом типа конструкции, задач проекта и нормативных требований — всё с подтверждённым качеством и сертификацией.
+  </div>
+
+  <!-- Карточки -->
+<div class="row row-cols-1 row-cols-md-3 g-3 mx-auto" style="max-width: 1440px;">
+  <div class="col">
+    <div class="card h-100 border-0 position-relative overflow-hidden text-white" style="min-height: 500px;">
+      <img src="{% static 'images/card1.jpg' %}" class="card-img h-100" style="object-fit: cover; min-height: 500px;">
+      <div class="card-img-overlay d-flex flex-column justify-content-between p-4" style="background: rgba(0, 0, 0, 0.7);">
+        <div>
+          <h5 class="card-title mb-0" style="font-size:1.4rem;">НАШИ КРУПНЫЕ<br>ЗАКАЗЧИКИ</h5>
+        </div>
+          <a href="#" class="square-btn mt-3">
+            <i class="bi bi-arrow-up-right-square-fill text-danger fs-1"></i>
+          </a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100 border-0 position-relative overflow-hidden text-white" style="min-height: 500px;">
+      <img src="{% static 'images/card2.jpg' %}" class="card-img h-100" style="object-fit: cover; min-height: 500px;">
+      <div class="card-img-overlay d-flex flex-column justify-content-between p-4" style="background: rgba(224,44,36,0.95);">
+        <div>
+          <h5 class="card-title mb-0" style="font-size:1.4rem;">О КОМПАНИИ<br>KnT</h5>
+        </div>
+          <a href="#" class="square-btn mt-3">
+            <i class="bi bi-arrow-up-right-square-fill text-white fs-1"></i>
+          </a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100 border-0 position-relative overflow-hidden text-white" style="min-height: 500px;">
+      <img src="{% static 'images/card1.jpg' %}" class="card-img h-100" style="object-fit: cover; min-height: 500px;">
+      <div class="card-img-overlay d-flex flex-column justify-content-between p-4" style="background: rgba(0, 0, 0, 0.7);">
+        <div>
+          <h5 class="card-title mb-0" style="font-size:1.4rem;">НАШИ КРУПНЫЕ<br>ЗАКАЗЧИКИ</h5>
+        </div>
+          <a href="#" class="square-btn mt-3">
+            <i class="bi bi-arrow-up-right-square-fill text-danger fs-1"></i>
+          </a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <style>
-.container {
-  padding-left: 100px;
-  padding-right: 0;
-}
-  
 .icon-box {
   display: inline-flex;
   background-color: #F03222;
@@ -128,6 +177,7 @@
   opacity: 1;
   transform: none;
 }
+
 </style>
 
 <script>
@@ -146,206 +196,220 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <style>
-  .contact-button-fixed {
-    position: fixed;
-    top: 90%;
-    right: 24px;
-    transform: translateY(-50%);
-    z-index: 1100;
-    padding: 12px;
-    border-radius: 40%;
+.contact-button-fixed {
+  position: fixed;
+  top: 90%;
+  right: 24px;
+  transform: translateY(-50%);
+  z-index: 1100;
+  padding: 12px;
+  border-radius: 40%;
+  font-size: 1rem;
+  box-shadow: -4px 0 16px rgba(0,0,0,0.08);
+}
+
+.contact-popup {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%) translateX(100%);
+  width: 360px;
+  max-width: 95vw;
+  height: auto;
+  background: #fff;
+  border-radius: 16px 0 0 16px;
+  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.2);
+  padding: 36px 28px 28px 28px;
+  z-index: 1001;
+  font-family: 'Montserrat', 'Arial', sans-serif;
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.contact-popup.active {
+  transform: translateY(-50%) translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.contact-popup .close-btn {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 26px;
+  color: #e74c3c;
+  background: none;
+  border: none;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.contact-popup .close-btn:hover {
+  color: #b71c1c;
+}
+
+.contact-popup h3 {
+  color: #e74c3c;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+  margin-top: 0;
+  line-height: 1.3;
+}
+
+.contact-popup .desc {
+  color: #888;
+  font-size: 1rem;
+  margin-bottom: 24px;
+}
+
+.contact-popup hr {
+  height: 3px;
+  background-color: #ccc;
+  border: none;
+  margin: 20px 0;
+}
+
+.contact-popup button.send-btn {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  width: 100%;
+  padding: 14px 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 12px;
+}
+
+.contact-popup button.custom-send-btn {
+  background:rgb(255, 255, 255);
+  color: red;
+  border: 2px solid #e74c3c;
+  border-radius: 30px;
+  width: 100%;
+  padding: 14px 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 12px;
+}
+
+.contact-popup button.custom-send-btn:hover {
+  background: rgba(151, 151, 151, 0.35);
+  opacity: 0.6;
+}
+
+.contact-popup button.send-btn:hover {
+  background: #b71c1c;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  z-index: 1000;
+  display: none;
+}
+
+@media (max-width: 500px) {
+    .contact-button-fixed {
+    padding: 20px 20px;
     font-size: 1rem;
-    box-shadow: -4px 0 16px rgba(0,0,0,0.08);
   }
-  
   .contact-popup {
-    position: fixed;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%) translateX(100%);
-    width: 360px;
-    max-width: 95vw;
-    height: auto;
-    background: #fff;
+    width: 90vw;
     border-radius: 16px 0 0 16px;
-    box-shadow: -8px 0 24px rgba(0, 0, 0, 0.2);
-    padding: 36px 28px 28px 28px;
-    z-index: 1001;
-    font-family: 'Montserrat', 'Arial', sans-serif;
-    opacity: 0;
-    transition: transform 0.5s ease, opacity 0.5s ease;
-    pointer-events: none;
+    padding: 24px 20px;
   }
-  
-  .contact-popup.active {
-    transform: translateY(-50%) translateX(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-  
   .contact-popup .close-btn {
-    position: absolute;
-    top: 16px;
-    right: 20px;
-    cursor: pointer;
-    font-size: 26px;
-    color: #e74c3c;
-    background: none;
-    border: none;
-    line-height: 1;
-    transition: color 0.2s;
+    top: 10px;
+    right: 16px;
+    font-size: 24px;
   }
-  
-  .contact-popup .close-btn:hover {
-    color: #b71c1c;
+}
+
+@media (max-width: 991px) {
+  .contact-button-fixed {
+    right: 8px;
   }
-  
-  .contact-popup h3 {
-    color: #e74c3c;
-    font-size: 1.6rem;
-    font-weight: 500;
-    margin-bottom: 10px;
-    margin-top: 0;
-    line-height: 1.3;
+}
+</style>
+
+<!-- Кнопка -->
+<button class="contact-button-fixed btn btn-outline-danger" onclick="togglePopup()">Связаться</button>
+
+<!-- Затемнение -->
+<div class="overlay" id="popupOverlay" onclick="hidePopup()"></div>
+
+<!-- Всплывающее окно -->
+<div class="contact-popup" id="contactPopup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+  <button class="close-btn" onclick="hidePopup()" aria-label="Закрыть">✕</button>
+  <h3 id="popupTitle">Оставьте сообщение на WhatsApp или email</h3>
+  <div class="desc">Мы обязательно ответим вам в ближайшее время</div>
+  <hr style="height: 2px; background-color: gray; border: none;">
+  <button class="custom-send-btn" onclick="sendEmail()">sales@polihim.ru</button>
+  <button class="send-btn" onclick="sendWhatsApp()">Написать WhatsApp</button>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    showPopup();
+  }, 5000); // Всплывает через 5 сек
+});
+
+function showPopup() {
+  document.getElementById("popupOverlay").style.display = "block";
+  document.getElementById("contactPopup").classList.add("active");
+}
+
+function hidePopup() {
+  document.getElementById("popupOverlay").style.display = "none";
+  document.getElementById("contactPopup").classList.remove("active");
+}
+
+function togglePopup() {
+  const popup = document.getElementById("contactPopup");
+  const overlay = document.getElementById("popupOverlay");
+  const isActive = popup.classList.contains("active");
+
+  if (isActive) {
+    hidePopup();
+  } else {
+    showPopup();
   }
-  
-  .contact-popup .desc {
-    color: #888;
-    font-size: 1rem;
-    margin-bottom: 24px;
-  }
-  
-  .contact-popup hr {
-    height: 3px;
-    background-color: #ccc;
-    border: none;
-    margin: 20px 0;
-  }
-  
-  .contact-popup button.send-btn {
-    background: #e74c3c;
-    color: #fff;
-    border: none;
-    border-radius: 30px;
-    width: 100%;
-    padding: 14px 0;
-    font-size: 1.1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.2s;
-    margin-bottom: 12px;
-  }
-  
-  .contact-popup button.custom-send-btn {
-    background:rgb(255, 255, 255);
-    color: red;
-    border: 2px solid #e74c3c;
-    border-radius: 30px;
-    width: 100%;
-    padding: 14px 0;
-    font-size: 1.1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.2s;
-    margin-bottom: 12px;
-  }
-  
-  .contact-popup button.custom-send-btn:hover {
-    background: rgba(151, 151, 151, 0.35);
-    opacity: 0.6;
-  }
-  
-  .contact-popup button.send-btn:hover {
-    background: #b71c1c;
-  }
-  
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  
-    z-index: 1000;
-    display: none;
-  }
-  
-  @media (max-width: 500px) {
-      .contact-button-fixed {
-      padding: 20px 20px;
-      font-size: 1rem;
-    }
-    .contact-popup {
-      width: 90vw;
-      border-radius: 16px 0 0 16px;
-      padding: 24px 20px;
-    }
-    .contact-popup .close-btn {
-      top: 10px;
-      right: 16px;
-      font-size: 24px;
-    }
-  }
-  </style>
-  
-  <!-- Кнопка -->
-  <button class="contact-button-fixed btn btn-outline-danger" onclick="togglePopup()">Связаться</button>
-  
-  <!-- Затемнение -->
-  <div class="overlay" id="popupOverlay" onclick="hidePopup()"></div>
-  
-  <!-- Всплывающее окно -->
-  <div class="contact-popup" id="contactPopup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
-    <button class="close-btn" onclick="hidePopup()" aria-label="Закрыть">✕</button>
-    <h3 id="popupTitle">Оставьте сообщение на WhatsApp или email</h3>
-    <div class="desc">Мы обязательно ответим вам в ближайшее время</div>
-    <hr style="height: 2px; background-color: gray; border: none;">
-    <button class="custom-send-btn" onclick="sendEmail()">sales@polihim.ru</button>
-    <button class="send-btn" onclick="sendWhatsApp()">Написать WhatsApp</button>
-  </div>
-  
-  <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-      showPopup();
-    }, 5000); // Всплывает через 5 сек
-  });
-  
-  function showPopup() {
-    document.getElementById("popupOverlay").style.display = "block";
-    document.getElementById("contactPopup").classList.add("active");
-  }
-  
-  function hidePopup() {
-    document.getElementById("popupOverlay").style.display = "none";
-    document.getElementById("contactPopup").classList.remove("active");
-  }
-  
-  function togglePopup() {
-    const popup = document.getElementById("contactPopup");
-    const overlay = document.getElementById("popupOverlay");
-    const isActive = popup.classList.contains("active");
-  
-    if (isActive) {
-      hidePopup();
-    } else {
-      showPopup();
-    }
-  }
-  
-  function sendEmail() {
-    const email = "sales@polihim.ru";
-    const subject = "Сообщение с сайта";
-    const body = "Здравствуйте! Хочу получить консультацию.";
-    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  }
-  
-  function sendWhatsApp() {
-    const phoneNumber = "77001234567";
-    const message = "Здравствуйте! Хочу получить консультацию.";
-    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank");
-  }
-  </script>
+}
+
+function sendEmail() {
+  const email = "sales@polihim.ru";
+  const subject = "Сообщение с сайта";
+  const body = "Здравствуйте! Хочу получить консультацию.";
+  window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+function sendWhatsApp() {
+  const phoneNumber = "77001234567";
+  const message = "Здравствуйте! Хочу получить консультацию.";
+  const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  window.open(url, "_blank");
+}
+</script>
+
 
 {% endblock %}
+
+<!-- Проверка
+<style>
+  * {
+    outline: 1px solid red;
+  }
+</style>  -->
