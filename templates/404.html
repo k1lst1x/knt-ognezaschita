@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Ошибка 404 — Страница не найдена</title>
+  <style>
+    body {
+      background: #f6f4f5;
+      color: #646464;
+      font-family: 'Montserrat', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .center-404 {
+      max-width: 600px;
+      margin: 100px auto 0 auto;
+      padding: 40px 30px 30px 30px;
+      background: transparent;
+    }
+    .err-title {
+      color: #e74c3c;
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 2.2em;
+      letter-spacing: 0.5px;
+    }
+    .err-text {
+      font-size: 1.1rem;
+      color: #646464;
+      margin-bottom: 0.7em;
+      line-height: 1.6;
+    }
+    .err-link {
+      color: #e74c3c;
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+    .err-link:hover {
+      color: #b5321e;
+    }
+  </style>
+</head>
+<body>
+  <div class="center-404">
+    <div class="err-title">ОШИБКА 404</div>
+    <div class="err-text">
+      Упс! Страница исчезла, как огонь под хорошей защитой.<br>
+      Возможно, ссылка устарела или была удалена.<br>
+      Возвращайтесь на <a href="{% url 'home' %}" class="err-link">главную</a>, чтобы найти нужную краску или материал.
+    </div>
+  </div>
+</body>
+</html>

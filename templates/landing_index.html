@@ -9,7 +9,7 @@
     {% for cat in categories_list %}
       <div class="mb-5">
         <div class="d-flex align-items-center mb-4">
-          <h2 class="h3 fw-bold me-3 mb-0 ">{{ cat.grouper.name }}</h2>
+          <h2 class="h3 me-3 mb-0 ">{{ cat.grouper.name }}</h2>
           {% comment %} <div class="flex-grow-1" style="height:2px; max-width:120px; background-color:#DE2E26;"></div> {% endcomment %}
         </div>
 
@@ -23,7 +23,7 @@
             {% comment %} <div class="mb-2 text-secondary small">{{ product.category.name }}</div> {% endcomment %}
             {% comment %} <p class="card-text mb-3">{{ product.description }}</p> {% endcomment %}
             {% if product.benefits %}
-            <ul class="ps-0" style="list-style:none;">
+            <ul class="ps-0" style="font-size: 1.08rem; list-style:none;">
               {% for b in product.benefits %}
               <li class="mb-1">
                 <i class="bi bi-chevron-right text-danger me-1"></i>
@@ -38,7 +38,7 @@
           </div>
           <div class="col-md-5 text-center">
             {% if product.image %}
-              <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid" style="max-height:180px; object-fit:cover;">
+              <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid" style="max-height:200px; object-fit:cover;">
             {% else %}
               <span class="text-secondary small">Нет изображения</span>
             {% endif %}

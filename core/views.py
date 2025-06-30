@@ -54,3 +54,12 @@ def about(request):
             'is_homepage': True,
         }
     )
+
+def knt_1(request):
+    return render(
+        request,
+        'knt_1.html',
+        {
+            'is_homepage': True,
+        }
+    )
