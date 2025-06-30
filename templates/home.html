@@ -152,47 +152,47 @@
 <div class="container" style="margin-top: 200px;">
   <div class="swiper mySwiper">
     <div class="swiper-wrapper">
-      <div class="swiper-slide d-flex justify-content-center align-items-center">
+      <div class="swiper-slide d-flex justify-content-center align-items-center fade-in-logo">
         <img src="{% static 'images/kazakhmyslogo.png' %}" alt="Kazakhmys" style="max-height:60px;">
       </div>
-      <div class="swiper-slide d-flex justify-content-center align-items-center">
+      <div class="swiper-slide d-flex justify-content-center align-items-center fade-in-logo">
         <img src="{% static 'images/kaspilogo.png' %}" alt="Kaspi" style="max-height:60px;">
       </div>
-      <div class="swiper-slide d-flex justify-content-center align-items-center">
+      <div class="swiper-slide d-flex justify-content-center align-items-center fade-in-logo">
         <img src="{% static 'images/sulpak_logo.png' %}" alt="Sulpak" style="max-height:60px;">
       </div>
-      <div class="swiper-slide d-flex justify-content-center align-items-center">
+      <div class="swiper-slide d-flex justify-content-center align-items-center fade-in-logo">
         <img src="{% static 'images/gazpromlogo.png' %}" alt="GazProm" style="max-height:60px;">
       </div>
-      <div class="swiper-slide d-flex justify-content-center align-items-center">
+      <div class="swiper-slide d-flex justify-content-center align-items-center fade-in-logo">
         <img src="{% static 'images/tengribanklogo.png' %}" alt="TengriBank" style="max-height:60px;">
       </div>
-      <div class="swiper-slide d-flex justify-content-center align-items-center">
+      <div class="swiper-slide d-flex justify-content-center align-items-center fade-in-logo">
         <img src="{% static 'images/kazakhtelecom_logo.png' %}" alt="KazakhTelecom" style="max-height:60px;">
       </div>
-      <div class="swiper-slide d-flex justify-content-center align-items-center">
+      <div class="swiper-slide d-flex justify-content-center align-items-center fade-in-logo">
         <img src="{% static 'images/compass_logo.png' %}" alt="Compass" style="max-height:60px;">
       </div>
-      <div class="swiper-slide d-flex justify-content-center align-items-center">
+      <div class="swiper-slide d-flex justify-content-center align-items-center fade-in-logo">
         <img src="{% static 'images/mlombard_logo.png' %}" alt="MLombard" style="max-height:60px;">
       </div>
-      <div class="swiper-slide d-flex justify-content-center align-items-center">
-        <img src="{% static 'images/prydi_logo.png' %}" alt="Prydi" style="max-height:60px;">
+      <div class="swiper-slide d-flex justify-content-center align-items-center fade-in-logo">
+        <img src="{% static 'images/prydi_logo.png' %}" alt="Prydi" style="max-height:80px;">
       </div>
-      <div class="swiper-slide d-flex justify-content-center align-items-center">
-        <img src="{% static 'images/sinooil_logo.png' %}" alt="Sinooil" style="max-height:60px;">
+      <div class="swiper-slide d-flex justify-content-center align-items-center fade-in-logo">
+        <img src="{% static 'images/sinooil_logo.png' %}" alt="Sinooil" style="max-height:80px;">
       </div>
-      <div class="swiper-slide d-flex justify-content-center align-items-center">
+      <div class="swiper-slide d-flex justify-content-center align-items-center fade-in-logo">
         <img src="{% static 'images/smallskif_logo.png' %}" alt="Small & Skif" style="max-height:60px;">
       </div>
-      <div class="swiper-slide d-flex justify-content-center align-items-center">
+      <div class="swiper-slide d-flex justify-content-center align-items-center fade-in-logo">
         <img src="{% static 'images/bigroup_logo.png' %}" alt="BiGroup" style="max-height:60px;">
       </div>
-      <div class="swiper-slide d-flex justify-content-center align-items-center">
+      <div class="swiper-slide d-flex justify-content-center align-items-center fade-in-logo">
         <img src="{% static 'images/altynmas_logo.png' %}" alt="Altynmas" style="max-height:60px;">
       </div>
-      <div class="swiper-slide d-flex justify-content-center align-items-center">
-        <img src="{% static 'images/freedom_logo.png' %}" alt="Freedom" style="max-height:60px;">
+      <div class="swiper-slide d-flex justify-content-center align-items-center fade-in-logo">
+        <img src="{% static 'images/fb_logo.png' %}" alt="Freedom" style="max-height:60px;">
       </div>
     </div>
     {% comment %} <div class="swiper-button-next"></div>
@@ -230,8 +230,8 @@
   transform: none;
 }
 .swiper-pagination {
-  margin-top: 32px !important; /* увеличьте значение по желанию */
-  position: static !important; /* убирает абсолютное позиционирование */
+  margin-top: 32px !important; 
+  position: static !important;
   text-align: center;
 }
 
@@ -243,6 +243,15 @@
 /* Цвет активной точки */
 .swiper-pagination-bullet-active {
   background: #e02c24 !important;
+}
+.fade-in-logo {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+}
+.fade-in-logo.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 </style>
@@ -281,6 +290,13 @@ document.addEventListener('DOMContentLoaded', function() {
       576: { slidesPerView: 2 },
       0:   { slidesPerView: 1 }
     }
+  });
+});
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll('.fade-in-logo').forEach((el, i) => {
+    setTimeout(() => {
+      el.classList.add('visible');
+    }, 200 + i * 100); 
   });
 });
 </script>

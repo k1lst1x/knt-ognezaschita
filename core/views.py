@@ -45,3 +45,12 @@ def home(request):
             'is_homepage': True,
         }
     )
+
+def about(request):
+    return render(
+        request,
+        'about.html',
+        {
+            'is_homepage': True,
+        }
+    )

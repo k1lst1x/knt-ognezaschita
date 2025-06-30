@@ -24,6 +24,7 @@ class ProductAdmin(admin.ModelAdmin):
     # =====  СПИСОК  =====
     list_display   = (
         "name",
+        "subtitle", 
         "slug",
         "category",
         "is_active",
@@ -45,6 +46,7 @@ class ProductAdmin(admin.ModelAdmin):
             "fields": (
                 "is_active",
                 "name",
+                "subtitle",
                 "slug",
                 "category",
                 "description",

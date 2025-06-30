@@ -9,15 +9,18 @@
     {% for cat in categories_list %}
       <div class="mb-5">
         <div class="d-flex align-items-center mb-4">
-          <h2 class="h3 fw-bold me-3 mb-0 text-danger">{{ cat.grouper.name }}</h2>
-          <div class="flex-grow-1" style="height:2px; max-width:120px; background-color:#DE2E26;"></div>
+          <h2 class="h3 fw-bold me-3 mb-0 ">{{ cat.grouper.name }}</h2>
+          {% comment %} <div class="flex-grow-1" style="height:2px; max-width:120px; background-color:#DE2E26;"></div> {% endcomment %}
         </div>
 
         {% for product in cat.list %}
         <div class="row align-items-center mb-5">
           <div class="col-md-7">
-            <h4 class="fw-bold mb-2">{{ product.name }}</h4>
-            <div class="mb-2 text-secondary small">{{ product.category.name }}</div>
+            <h4 class="fw-bold mb-2" style="font-size:1.2rem;">{{ product.name }}</h4>
+            {% if product.subtitle %}
+              <div class="mb-2 text-muted" style="font-size:1.1rem;">{{ product.subtitle }}</div>
+            {% endif %}
+            {% comment %} <div class="mb-2 text-secondary small">{{ product.category.name }}</div> {% endcomment %}
             {% comment %} <p class="card-text mb-3">{{ product.description }}</p> {% endcomment %}
             {% if product.benefits %}
             <ul class="ps-0" style="list-style:none;">
@@ -48,6 +51,9 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title text-danger" id="modalLabel{{ product.slug }}">{{ product.name }}</h5>
+                {% if product.subtitle %}
+                  <div class="text-muted" style="font-size:1.1rem;">{{ product.subtitle }}</div>
+                {% endif %}
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
               </div>
               <div class="modal-body">
@@ -103,6 +109,9 @@
 </section>
 
 <style>
+.text-muted {
+  color: #374151 !important;
+}
 .contact-button-fixed {
   position: fixed;
   top: 90%;

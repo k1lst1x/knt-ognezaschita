@@ -4,15 +4,29 @@
 {% block content %}
 <div class="container my-5">
   <h2 class="mb-5" style="font-size:1.75rem;">
-    Огнезащита с <span class="text-danger fw-semibold">гарантией</span> качества по ГОСТ и ТУ
-  </h2>
+    <span class="text-danger fw-semibold">О компании КНТ:</span> ответственность перед клиентом — <br> главный принцип в огнезащите
 
-  <div class="row row-cols-1 row-cols-md-2 g-4">
-
-
+    <div class="mb-4 mt-5 about-text">
+    <p>Уже более 8 лет мы работаем на рынке противопожарной безопасности и заслужив репутацию надёжного <br>поставщика для промышленных предприятий, бюджетных организаций и частных заказчиков.<br> Предлагаем ассортимент сертифицированных огнезащитных составов по всему Казахстану — для<br> металлических, деревянных и кабельных конструкций.</p>
+    <p>Мы тщательно контролируем качество поставляемой продукции — каждый состав проходит проверку и<br> соответствует требованиям ГОСТ и ТУ.</p>
+    <p>В своей работе мы придерживаемся чётких рамок ответственности. КНТ гарантирует соответствие<br> продукции стандартам, контролирует качество на каждом этапе и честно обозначает зону своей<br> компетенции.</p>
+    <p>Мы предлагаем решения, эффективность и законность которых подтверждаем. Важно, чтобы клиент<br> чётко понимал, где мы берём на себя ответственность, а где остаётся выбор за ним. Такой подход<br> формирует профессиональные и надёжные отношения на основе прозрачности и уважения.</p>
+    <p>Сегодня мы сотрудничаем более чем с 50(х) постоянными клиентами, для каждого из которых<br> предлагаем персональный подход. Консультация на всех этапах — от подбора состава до разъяснения<br> условий нанесения и помощи с документацией.</p>
+    </div>
 
 <style>
-
+.about-text {
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 30px;
+  color: #646464;
+  text-align: justify;
+  text-align-last: left;
+  letter-spacing: 0;
+}
+.about-text p {
+  margin-bottom: 1.8em;
+}
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
@@ -23,22 +37,9 @@
   transform: none;
 }
 
-
 </style>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
-});
 
 </script>
 

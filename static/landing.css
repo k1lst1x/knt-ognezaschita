@@ -104,12 +104,3 @@ body {
 /* ... при необходимости можете добавить дополнительные классы ... */
 
 
-.swiper-pagination-bullet {
-  background: #bdbdbd !important;
-  opacity: 1 !important;
-}
-
-/* Цвет активной точки */
-.swiper-pagination-bullet-active {
-  background: #e02c24 !important;
-}

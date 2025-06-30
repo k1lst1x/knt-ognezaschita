@@ -8,6 +8,7 @@ from django.db import models
 class Category(models.Model):
     """Категория товаров"""
     name = models.CharField("Название", max_length=100, unique=True)
+    title_in_list = models.CharField("Заголовок", max_length=100, blank=True)
     slug = models.SlugField("URL", unique=True)
     description = models.TextField("Описание", blank=True)
 
@@ -23,6 +24,7 @@ class Product(models.Model):
     slug = models.SlugField(primary_key=True, max_length=100, help_text="URL‑friendly unique ID")
     category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name='products', verbose_name="Категория")
     name = models.CharField(max_length=255)
+    subtitle = models.CharField("Подзаголовок", max_length=255, blank=True, null=True)
     description = models.TextField()
     benefits = models.JSONField(default=list, blank=True)
     image = models.ImageField(upload_to="products/", blank=True, null=True)
