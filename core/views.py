@@ -55,6 +55,15 @@ def about(request):
         }
     )
 
+def delivery(request):
+    return render(
+        request,
+        'delivery.html',
+        {
+            'is_homepage': True,
+        }
+    )
+
 def knt_1(request):
     return render(
         request,

@@ -71,6 +71,25 @@ body {
     font-size: 1.25rem;
     min-width: 200px;
 }
+.btn-lg-custom,
+.btn-lg-custom:focus {
+  transition: transform 0.22s cubic-bezier(.4,2,.6,1), box-shadow 0.22s, background 0.2s, color 0.2s;
+}
+.btn-lg-custom:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 4px 18px rgba(229,57,53,0.13);
+  background: #fff !important;
+  color:rgb(255, 255, 255) !important;
+}
+.btn-lg-custom.btn-danger:hover {
+  background:rgba(229, 56, 53, 0.47) !important;
+  color:rgb(255, 255, 255) !important;
+  border-color: #e53935 !important;
+}
+.btn-lg-custom.btn-link:hover {
+  color: #e53935 !important;
+  background:rgba(255, 255, 255, 0.11) !important;
+}
 
 .hero-wrapper header,
 .hero-wrapper .container,
@@ -85,12 +104,10 @@ body {
   overflow: hidden;
   transition: height 0.3s ease;
 } */
-
 #mobileNav.collapse.show {
   height: auto; /* Даст Bootstrap'у возможность вычислить высоту */
   transition: height 0.3s ease;
 }
-
 </style>
 
 {% if is_homepage %}
@@ -112,7 +129,7 @@ body {
     <nav class="d-none d-md-flex gap-5 align-items-center ms-auto">
         <a href="{% url 'home' %}" class="text-white text-decoration-none hover-red">Главная</a>
         <a href="#" class="text-white text-decoration-none hover-red">Контакты</a>
-        <a href="#" class="text-white text-decoration-none hover-red">Доставка</a>
+        <a href="{% url 'delivery' %}" class="text-white text-decoration-none hover-red">Доставка</a>
         <a href="#" class="text-white text-decoration-none hover-red">Отзывы</a>
         <div class="dropdown">
           <a href="#" class="dropdown-toggle text-white" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -151,9 +168,9 @@ body {
     <!-- Мобильное меню -->
     <div class="collapse d-md-none mt-3 w-100" id="mobileNav">
       <nav class="d-flex flex-column gap-2">
-        <a href="#" class="text-white text-decoration-none hover-red">Главная</a>
+        <a href="{% url 'home' %}" class="text-white text-decoration-none hover-red">Главная</a>
         <a href="#" class="text-white text-decoration-none hover-red">Контакты</a>
-        <a href="#" class="text-white text-decoration-none hover-red">Доставка</a>
+        <a href="{% url 'delivery' %}" class="text-white text-decoration-none hover-red">Доставка</a>
         <a href="#" class="text-white text-decoration-none hover-red">Отзывы</a>
         <a href="#" class="text-white text-decoration-none hover-red">О нас</a>
       </nav>
@@ -171,7 +188,7 @@ body {
           </p>
           <div class="d-flex flex-column flex-sm-row gap-5 justify-content-center mt-20">
             <div class="d-flex flex-column flex-sm-row gap-5 justify-content-center">
-                <a href="#" class="btn btn-danger btn-lg rounded-pill btn-rounded btn-lg-custom">ВЫБРАТЬ СОСТАВ</a>
+                <a href="{% url 'landing_index' %}" class="btn btn-danger btn-lg rounded-pill btn-rounded btn-lg-custom">ВЫБРАТЬ СОСТАВ</a>
                 <button class="btn btn-link text-white btn-lg rounded-pill btn-rounded btn-lg-custom text-decoration-none">КАТАЛОГ PDF
                   <i class="bi bi-download ms-3"></i>
                 </button>

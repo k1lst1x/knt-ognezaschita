@@ -1,0 +1,460 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container my-5">
+  <h2 class="mb-5" style="font-size:1.7rem;">
+    Условия <span class="text-danger fw-semibold">ДОСТАВКИ</span>
+
+    <div class="mb-4 mt-5 about-text">
+    <p>Доставка осуществляется по понедельникам, средам и пятницам. <br>Отправка возможна после наполнения гаража необходимым объёмом товаров.</p>
+    <p>Ориентировочный срок подготовки к отправке: <br>от 14 рабочих дней — в зависимости от загруженности и поступления товаров на склад.</p>
+    <p>Как только заказ готов к отправке — мы сразу сообщаем и согласуем доставку. <br>Если вы хотите узнать точную дату, свяжитесь с менеджером — мы подскажем ближайшую <br> возможную отправку.</p>
+    </div>
+      <div class="mt-5">
+    <h3 style="font-size:1.7rem; font-weight:400; margin-bottom:1.2em; margin-top: 3em;">
+      Доступные варианты <span style="color:#e74c3c; font-weight:600;">ОПЛАТЫ</span>
+    </h3>
+    <div class="about-text">
+      <p>Предлагаем удобные способы оплаты — от безналичного расчёта до онлайн-сервисов, с <br>  акцентом на безопасность и комфорт для клиентов.</p>
+      <ul class="about-list">
+    </div>
+  </div>
+  </div>
+</div>
+<!-- Карточки оплаты -->
+<div class="row row-cols-1 row-cols-md-3 g-4 mx-auto mb-5 payment-cards-row" style="max-width: 1440px;">
+  <!-- Карточка 1: Продукция -->
+  <div class="col">
+    <div class="payment-card product-card d-flex flex-column justify-content-end align-items-start">
+       <a href="{% url 'landing_index' %}" class="payment-icon-btn">
+        <i class="bi bi-arrow-up-right text-danger"></i>
+      </a>
+      <div class="payment-product-title">ПРОДУКЦИЯ</div>
+    </div>
+  </div>
+<!-- Карточка 2: Безналичный расчет -->
+<div class="col">
+  <div class="payment-card payment-card-outline d-flex flex-column align-items-start">
+    <div class="d-flex align-items-center gap-3 mb-4">
+      <button class="payment-icon-btn payment-icon-btn-red">
+        <i class="bi bi-arrow-up-right text-white"></i>
+      </button>
+      <div class="payment-title m-0">БЕЗНАЛИЧНЫЙ<br>РАСЧЕТ</div>
+    </div>
+    <div class="payment-desc mb-3">
+      Принимаем Kaspi, Halyk,<br>
+      Visa, Mastercard, ForteBank
+    </div>
+    <div class="payment-desc mb-2">
+      — Поддержка всех<br> банковских карт в Казахстане
+    </div>
+    <div class="payment-desc">
+      — Счёт на расчётный счёт организации
+    </div>
+  </div>
+</div>
+
+<!-- Карточка 3: Оплата наличными -->
+<div class="col">
+  <div class="payment-card payment-card-outline d-flex flex-column align-items-start">
+    <div class="d-flex align-items-center gap-3 mb-4">
+      <button class="payment-icon-btn payment-icon-btn-red">
+        <i class="bi bi-arrow-up-right text-white"></i>
+      </button>
+      <div class="payment-title m-0">ОПЛАТА<br>НАЛИЧНЫМИ</div>
+    </div>
+    <div class="custom-payment-desc">
+      Наличными при получении<br>
+      — при самовывозе
+    </div>
+  </div>
+</div>
+<div>
+
+<style>
+.about-text {
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 30px;
+  color: #646464;
+  text-align: justify;
+  text-align-last: left;
+  letter-spacing: 0;
+}
+.about-text p {
+  margin-bottom: 1.8em;
+}
+
+.payment-cards-row {
+  --card-radius: 16px;
+}
+.payment-card {
+  border-radius: var(--card-radius);
+  min-height: 290px;
+  padding: 0;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+}
+.product-card {
+  background: #e53935;
+  color: #fff;
+  height: 70%;
+  min-height: 290px;
+  padding: 0 0 0 0;
+  position: relative;
+  justify-content: flex-end;
+}
+.product-card .payment-icon-btn {
+  position: absolute;
+  left: 32px;
+  bottom: 40px;
+  background: #fff;
+  color: #e53935;
+  border: none;
+  border-radius: 8px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+  font-size: 1.7rem;
+  box-shadow: none;
+}
+.payment-product-title {
+  font-size: 1.7rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  margin-left: 100px;
+  margin-bottom: 40px;
+}
+.payment-card-outline {
+  background: #f6f4f5;
+  color: #e53935;
+  border: 1.5px solid #e53935;
+  border-radius: var(--card-radius);
+  min-height: 290px;
+  padding: 40px 36px 36px 36px;
+  position: relative;
+  box-shadow: none;
+}
+.payment-icon-btn {
+  background: #e53935;
+  border: none;
+  border-radius: 8px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  font-size: 1.7rem;
+  box-shadow: none;
+}
+.payment-icon-btn-red {
+  background: #e53935;
+}
+.payment-title {
+  font-size: 1.55rem;
+  font-weight: 500;
+  color: #e53935;
+  margin-bottom: 24px;
+  margin-top: 8px;
+  letter-spacing: 0.2px;
+  line-height: 1.1;
+}
+.custom-payment-desc {
+  color: #646464;
+  font-size: 1.18rem;
+  font-weight: 400;
+  margin-bottom: 0.7em;
+  margin-top: 45px;
+  line-height: 1.35;
+  padding-left: 40px;
+}
+.payment-desc {
+  color: #646464;
+  font-size: 1.18rem;
+  font-weight: 400;
+  margin-bottom: 0.7em;
+  margin-top: 10px;
+  line-height: 1.35;
+}
+@media (max-width: 991px) {
+  .payment-product-title {
+    margin-left: 80px;
+    margin-bottom: 32px;
+    font-size: 1.3rem;
+  }
+  .product-card .payment-icon-btn {
+    left: 20px;
+    bottom: 24px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  .payment-card-outline {
+    padding: 28px 16px 24px 16px;
+    min-height: 200px;
+  }
+  .payment-title {
+    font-size: 1.1rem;
+  }
+  .payment-desc {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 600px) {
+  .payment-product-title {
+    margin-left: 60px;
+    margin-bottom: 24px;
+    font-size: 1.1rem;
+  }
+  .product-card .payment-icon-btn {
+    left: 12px;
+    bottom: 12px;
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+  .payment-card-outline {
+    padding: 16px 8px 12px 8px;
+    min-height: 120px;
+  }
+}
+.payment-card {
+  transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.25s;
+}
+.payment-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(229,57,53,0.12);
+  z-index: 2;
+}
+
+</style>
+
+<script>
+
+</script>
+
+<style>
+.contact-button-fixed {
+  position: fixed;
+  top: 90%;
+  right: 24px;
+  transform: translateY(-50%);
+  z-index: 1100;
+  padding: 12px;
+  border-radius: 40%;
+  font-size: 1rem;
+  box-shadow: -4px 0 16px rgba(0,0,0,0.08);
+}
+
+.contact-popup {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%) translateX(100%);
+  width: 360px;
+  max-width: 95vw;
+  height: auto;
+  background: #fff;
+  border-radius: 16px 0 0 16px;
+  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.2);
+  padding: 36px 28px 28px 28px;
+  z-index: 1001;
+  font-family: 'Montserrat', 'Arial', sans-serif;
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.contact-popup.active {
+  transform: translateY(-50%) translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.contact-popup .close-btn {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 26px;
+  color: #e74c3c;
+  background: none;
+  border: none;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.contact-popup .close-btn:hover {
+  color: #b71c1c;
+}
+
+.contact-popup h3 {
+  color: #e74c3c;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+  margin-top: 0;
+  line-height: 1.3;
+}
+
+.contact-popup .desc {
+  color: #888;
+  font-size: 1rem;
+  margin-bottom: 24px;
+}
+
+.contact-popup hr {
+  height: 3px;
+  background-color: #ccc;
+  border: none;
+  margin: 20px 0;
+}
+
+.contact-popup button.send-btn {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  width: 100%;
+  padding: 14px 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 12px;
+}
+
+.contact-popup button.custom-send-btn {
+  background:rgb(255, 255, 255);
+  color: red;
+  border: 2px solid #e74c3c;
+  border-radius: 30px;
+  width: 100%;
+  padding: 14px 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 12px;
+}
+
+.contact-popup button.custom-send-btn:hover {
+  background: rgba(151, 151, 151, 0.35);
+  opacity: 0.6;
+}
+
+.contact-popup button.send-btn:hover {
+  background: #b71c1c;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  z-index: 1000;
+  display: none;
+}
+
+@media (max-width: 500px) {
+    .contact-button-fixed {
+    padding: 20px 20px;
+    font-size: 1rem;
+  }
+  .contact-popup {
+    width: 90vw;
+    border-radius: 16px 0 0 16px;
+    padding: 24px 20px;
+  }
+  .contact-popup .close-btn {
+    top: 10px;
+    right: 16px;
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 991px) {
+  .contact-button-fixed {
+    right: 8px;
+  }
+}
+</style>
+
+<!-- Кнопка -->
+<button class="contact-button-fixed btn btn-outline-danger" onclick="togglePopup()">Связаться</button>
+
+<!-- Затемнение -->
+<div class="overlay" id="popupOverlay" onclick="hidePopup()"></div>
+
+<!-- Всплывающее окно -->
+<div class="contact-popup" id="contactPopup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+  <button class="close-btn" onclick="hidePopup()" aria-label="Закрыть">✕</button>
+  <h3 id="popupTitle">Оставьте сообщение на WhatsApp или email</h3>
+  <div class="desc">Мы обязательно ответим вам в ближайшее время</div>
+  <hr style="height: 2px; background-color: gray; border: none;">
+  <button class="custom-send-btn" onclick="sendEmail()">sales@polihim.ru</button>
+  <button class="send-btn" onclick="sendWhatsApp()">Написать WhatsApp</button>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    showPopup();
+  }, 5000); // Всплывает через 5 сек
+});
+
+function showPopup() {
+  document.getElementById("popupOverlay").style.display = "block";
+  document.getElementById("contactPopup").classList.add("active");
+}
+
+function hidePopup() {
+  document.getElementById("popupOverlay").style.display = "none";
+  document.getElementById("contactPopup").classList.remove("active");
+}
+
+function togglePopup() {
+  const popup = document.getElementById("contactPopup");
+  const overlay = document.getElementById("popupOverlay");
+  const isActive = popup.classList.contains("active");
+
+  if (isActive) {
+    hidePopup();
+  } else {
+    showPopup();
+  }
+}
+
+function sendEmail() {
+  const email = "sales@polihim.ru";
+  const subject = "Сообщение с сайта";
+  const body = "Здравствуйте! Хочу получить консультацию.";
+  window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+function sendWhatsApp() {
+  const phoneNumber = "77001234567";
+  const message = "Здравствуйте! Хочу получить консультацию.";
+  const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  window.open(url, "_blank");
+}
+</script>
+
+
+{% endblock %}
+
+<!-- Проверка
+<style>
+  * {
+    outline: 1px solid red;
+  }
+</style>  -->
