@@ -35,8 +35,11 @@
             </ul>
             {% endif %}
             <button class="btn p-0 m-0 mt-3 ms-4 text-danger fw-medium small" style="background: none; border: none;" data-bs-toggle="modal" data-bs-target="#productModal{{ product.slug }}">
-                Подробнее &gt;&gt;
+                Подробнее &#8230;
             </button>
+            <a href="{% url 'product_detail' slug=product.slug %}" class="btn p-0 m-0 mt-3 ms-4 text-danger fw-medium small" style="background: none; border: none; text-decoration: none;">
+              На страницу товара &gt;&gt;
+            </a>
           </div>
           <div class="col-md-5 text-center">
             {% if product.image %}
