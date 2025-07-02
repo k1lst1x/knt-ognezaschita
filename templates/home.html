@@ -115,7 +115,7 @@
         <div>
           <h5 class="card-title mb-0" style="font-size:1.4rem;">НАШИ КРУПНЫЕ<br>ЗАКАЗЧИКИ</h5>
         </div>
-          <a href="#" class="square-btn mt-3">
+          <a href="{% url 'feedback' %}" class="square-btn mt-3">
             <i class="bi bi-arrow-up-right-square-fill text-danger fs-1"></i>
           </a>
       </div>
@@ -211,14 +211,27 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.icon-box:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(240, 51, 34, 0.3);
+}
+
 .icon-box .bi-check-lg {
   color: #fff;
   font-size: 1.5rem !important;
   position: relative;
   z-index: 1;
   top: 2px;
+  transition: transform 0.3s ease;
 }
+
+.icon-box:hover .bi-check-lg {
+  transform: rotate(-5deg) scale(1.1);
+}
+
 
 .fade-in {
   opacity: 0;

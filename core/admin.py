@@ -51,6 +51,7 @@ class ProductAdmin(admin.ModelAdmin):
                 "category",
                 "description",
                 "image",
+                "additional_info",
                 "image_preview",
             )
         }),

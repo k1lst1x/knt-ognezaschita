@@ -1,7 +1,10 @@
-from django.shortcuts import render
 from .models import Product, Category
+from django.shortcuts import get_object_or_404, render
 
-
+def product_detail(request, slug):
+    product = get_object_or_404(Product, slug=slug)
+    return render(request, 'product_detail.html', {'product': product, 'is_homepage': True})
+    
 def landing_index(request):
     # Берём только активные товары, самые новые первыми
     products = Product.objects.filter(is_active=True).select_related('category').order_by('category__name', '-created_at')
@@ -59,6 +62,15 @@ def delivery(request):
     return render(
         request,
         'delivery.html',
+        {
+            'is_homepage': True,
+        }
+    )
+
+def feedback(request):
+    return render(
+        request,
+        'feedback.html',
         {
             'is_homepage': True,
         }

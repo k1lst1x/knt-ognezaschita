@@ -28,6 +28,7 @@ class Product(models.Model):
     description = models.TextField()
     benefits = models.JSONField(default=list, blank=True)
     image = models.ImageField(upload_to="products/", blank=True, null=True)
+    additional_info = models.TextField("Дополнительная информация", blank=True)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     edited_at  = models.DateTimeField(auto_now=True)

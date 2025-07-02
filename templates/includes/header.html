@@ -82,12 +82,12 @@ body {
   color:rgb(255, 255, 255) !important;
 }
 .btn-lg-custom.btn-danger:hover {
-  background:rgba(229, 56, 53, 0.47) !important;
+  background:rgba(229, 56, 53, 0.69) !important;
   color:rgb(255, 255, 255) !important;
   border-color: #e53935 !important;
 }
 .btn-lg-custom.btn-link:hover {
-  color: #e53935 !important;
+  color:rgb(255, 255, 255) !important;
   background:rgba(255, 255, 255, 0.11) !important;
 }
 
@@ -130,7 +130,7 @@ body {
         <a href="{% url 'home' %}" class="text-white text-decoration-none hover-red">Главная</a>
         <a href="#" class="text-white text-decoration-none hover-red">Контакты</a>
         <a href="{% url 'delivery' %}" class="text-white text-decoration-none hover-red">Доставка</a>
-        <a href="#" class="text-white text-decoration-none hover-red">Отзывы</a>
+        <a href="{% url 'feedback' %}" class="text-white text-decoration-none hover-red">Отзывы</a>
         <div class="dropdown">
           <a href="#" class="dropdown-toggle text-white" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             О нас
