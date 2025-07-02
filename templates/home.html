@@ -229,6 +229,14 @@
   opacity: 1;
   transform: none;
 }
+.card {
+  transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.25s;
+}
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(229,57,53,0.13);
+  z-index: 2;
+}
 .swiper-pagination {
   margin-top: 32px !important; 
   position: static !important;
@@ -238,28 +246,24 @@
 .swiper-pagination-bullet {
   background: #bdbdbd !important;
   opacity: 1 !important;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 /* Цвет активной точки */
 .swiper-pagination-bullet-active {
   background: #e02c24 !important;
+  transform: scale(1.4);
 }
+
 .fade-in-logo {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+  transform: translateY(30px) scale(0.95);
+  transition: opacity 0.7s cubic-bezier(.4, 0, .2, 1),
+              transform 0.7s cubic-bezier(.4, 0, .2, 1);
 }
 .fade-in-logo.visible {
   opacity: 1;
-  transform: translateY(0);
-}
-.card {
-  transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.25s;
-}
-.card:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 8px 32px rgba(229,57,53,0.13);
-  z-index: 2;
+  transform: translateY(0) scale(1);
 }
 </style>
 
@@ -526,3 +530,25 @@ function sendWhatsApp() {
     outline: 1px solid red;
   }
 </style>  -->
+
+
+<!-- Анимация лого в сторону + размытие
+.fade-in-logo.visible {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  filter: blur(0);
+}
+.fade-in-logo {
+  transform: translateX(-40px);
+  filter: blur(4px);
+}
+  .swiper-pagination-bullet {
+  background: #bdbdbd !important;
+  opacity: 1;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.swiper-pagination-bullet:hover {
+  box-shadow: 0 0 0 4px rgba(224, 44, 36, 0.3);
+  background: #e02c24 !important;
+}
