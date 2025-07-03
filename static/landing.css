@@ -103,4 +103,25 @@ body {
 
 /* ... при необходимости можете добавить дополнительные классы ... */
 
+@media (min-width: 1280px) {
+  body {
+    zoom: 0.8; /* масштабирование без белых полос */
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .btn-lg-custom {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    min-width: 160px;
+  }
+
+  .lead {
+    font-size: 1rem;
+  }
+}
 

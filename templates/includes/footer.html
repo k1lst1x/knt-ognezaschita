@@ -6,31 +6,33 @@
   color: #cfcfcf;
   padding: 40px 0 0 0;
 }
-
 .footer a.text-secondary {
   color: #9CA3AF !important;
 }
-
 .footer a.text-secondary:hover {
   color: #f8f9fa !important;
   text-decoration: underline !important;
 }
-
 .footer h5 {
   font-size: 1.1rem !important;
 }
 .footer .bi {
   vertical-align: middle !important;
 }
-
-
 </style>
 
-
+<div class="container my-4">
+  <div class="bg-white rounded shadow-sm">
+    <div class="ratio ratio-21x9">
+      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A852a93248880399137a2eb62bf956d443fa2d792afb7b84d7c2f06b3f09250bc&amp;source=constructor"
+              width="100%" height="400" frameborder="0" style="border:0; display:block;" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
 
 <footer class="footer text-white pt-5 pb-3">
   <div class="container">
-        <!-- карта -->
+        {% comment %} <!-- карта -->
         <div class="row mb-4">
           <div class="col-12">
             <div class="ratio ratio-21x9 rounded shadow-sm">
@@ -42,7 +44,7 @@
               <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A852a93248880399137a2eb62bf956d443fa2d792afb7b84d7c2f06b3f09250bc&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
             </div>
           </div>
-        </div>
+        </div> {% endcomment %}
     <div class="row mb-4">
       <!-- 1. Огнезащита объектов -->
       <div class="col-12 col-md-3 mb-4 mb-md-0">

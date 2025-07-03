@@ -165,16 +165,30 @@ body {
       <i class="bi bi-list fs-1"></i>
     </button>
 
-    <!-- Мобильное меню -->
-    <div class="collapse d-md-none mt-3 w-100" id="mobileNav">
-      <nav class="d-flex flex-column gap-2">
-        <a href="{% url 'home' %}" class="text-white text-decoration-none hover-red">Главная</a>
-        <a href="#" class="text-white text-decoration-none hover-red">Контакты</a>
-        <a href="{% url 'delivery' %}" class="text-white text-decoration-none hover-red">Доставка</a>
-        <a href="#" class="text-white text-decoration-none hover-red">Отзывы</a>
-        <a href="#" class="text-white text-decoration-none hover-red">О нас</a>
-      </nav>
-    </div>
+<!-- Мобильное меню -->
+  <div class="collapse d-md-none mt-3 w-100" id="mobileNav">
+    <nav class="d-flex flex-column gap-2">
+      <a href="{% url 'home' %}" class="text-white text-decoration-none hover-red">Главная</a>
+      <a href="#" class="text-white text-decoration-none hover-red">Контакты</a>
+      <a href="{% url 'delivery' %}" class="text-white text-decoration-none hover-red">Доставка</a>
+      <a href="{% url 'feedback' %}" class="text-white text-decoration-none hover-red">Отзывы</a>
+      <div class="dropdown">
+        <a href="#" class="dropdown-toggle text-white" id="aboutDropdownMobile" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          О нас
+          <i class="bi bi-chevron-down ms-1 fs-6"></i>
+        </a>
+        <ul class="dropdown-menu custom-dropdown-menu mt-3" aria-labelledby="aboutDropdownMobile">
+          <li><a class="dropdown-item text-white fs-6" href="#">Сертификаты</a></li>
+          <li><a class="dropdown-item fs-6 text-grey-object" href="#">Объекты</a></li>
+          <li><a class="dropdown-item fs-6 text-grey-object" href="#">Партнеры</a></li>
+        </ul>
+      </div>
+        <a href="{% url 'landing_index' %}"
+          class="btn text-white border border-white rounded-pill btn-rounded px-3 py-1 mt-2 text-start d-block"
+          style="background:rgba(255,255,255,0.07); max-width: 160px;">
+          Продукция
+        </a>
+    </nav>
   </div>
 </header>
 
