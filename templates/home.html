@@ -96,9 +96,7 @@
 </div>
 
 <!-- Заголовок и описание -->
-
-
-<div class="container my-5">
+<div class="container my-5 custom-margin-top">
   <h2 class="mb-4" style="font-size:1.8rem;">
     Надёжная <span class="text-danger fw-semibold">ОГНЕЗАЩИТА</span> по стандартам
   </h2>
@@ -107,7 +105,7 @@
   </div>
 
   <!-- Карточки -->
-<div class="row row-cols-1 row-cols-md-3 g-3 mx-auto" style="max-width: 1440px;">
+<div class="row row-cols-1 row-cols-md-3 g-3 mx-auto mt-5" style="max-width: 1440px;">
   <div class="col">
     <div class="card h-100 border-0 position-relative overflow-hidden text-white" style="min-height: 500px;">
       <img src="{% static 'images/card1.jpg' %}" class="card-img h-100" style="object-fit: cover; min-height: 500px;">
@@ -116,7 +114,7 @@
           <h5 class="card-title mb-0" style="font-size:1.4rem;">НАШИ КРУПНЫЕ<br>ЗАКАЗЧИКИ</h5>
         </div>
           <a href="{% url 'feedback' %}" class="square-btn mt-3">
-            <i class="bi bi-arrow-up-right-square-fill text-danger fs-1"></i>
+            <i class="bi bi-arrow-up-right-square-fill text-whitespace-normal fs-1"></i>
           </a>
       </div>
     </div>
@@ -142,7 +140,7 @@
           <h5 class="card-title mb-0" style="font-size:1.4rem;">НАШИ КРУПНЫЕ<br>ЗАКАЗЧИКИ</h5>
         </div>
           <a href="#" class="square-btn mt-3">
-            <i class="bi bi-arrow-up-right-square-fill text-danger fs-1"></i>
+            <i class="bi bi-arrow-up-right-square-fill text-white fs-1"></i>
           </a>
       </div>
     </div>
@@ -231,7 +229,9 @@
 .icon-box:hover .bi-check-lg {
   transform: rotate(-5deg) scale(1.1);
 }
-
+.custom-margin-top {
+  margin-top: 120px !important;
+}
 
 .fade-in {
   opacity: 0;
