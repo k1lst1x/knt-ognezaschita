@@ -7,7 +7,7 @@
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  min-height: 70vh;
+  min-height: 85vh;
 }
 
 .hero-wrapper::before {
@@ -203,9 +203,9 @@ body {
           <div class="d-flex flex-column flex-sm-row gap-5 justify-content-center mt-20">
             <div class="d-flex flex-column flex-sm-row gap-5 justify-content-center">
                 <a href="{% url 'landing_index' %}" class="btn btn-danger btn-lg rounded-pill btn-rounded btn-lg-custom">ВЫБРАТЬ СОСТАВ</a>
-                <button class="btn btn-link text-white btn-lg rounded-pill btn-rounded btn-lg-custom text-decoration-none">КАТАЛОГ PDF
+                <a href="{% static 'files/Портфолио_в_кривых_элекртонный_вид_1.pdf' %}" target="_blank" class="btn btn-link text-white btn-lg rounded-pill btn-rounded btn-lg-custom text-decoration-none">КАТАЛОГ PDF
                   <i class="bi bi-download ms-3"></i>
-                </button>
+                </a>
             </div>
         </div>
       </div>
