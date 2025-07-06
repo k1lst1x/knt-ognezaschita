@@ -147,52 +147,55 @@
   </div>
 </div>
 
-<div class="container" style="margin-top: 200px; margin-bottom: 150px;">
-  <div class="logo-ticker-wrapper">
-    <div class="logo-ticker-track">
-      <div class="logo-slide d-flex justify-content-center align-items-center fade-in-logo">
+<div class="container" style="margin-top: 200px;">
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide d-flex justify-content-center align-items-center fade-in-logo">
         <img src="{% static 'images/kazakhmyslogo.png' %}" alt="Kazakhmys" style="max-height:60px;">
       </div>
-      <div class="logo-slide d-flex justify-content-center align-items-center fade-in-logo">
+      <div class="swiper-slide d-flex justify-content-center align-items-center fade-in-logo">
         <img src="{% static 'images/kaspilogo.png' %}" alt="Kaspi" style="max-height:60px;">
       </div>
-      <div class="logo-slide d-flex justify-content-center align-items-center fade-in-logo">
+      <div class="swiper-slide d-flex justify-content-center align-items-center fade-in-logo">
         <img src="{% static 'images/sulpak_logo.png' %}" alt="Sulpak" style="max-height:60px;">
       </div>
-      <div class="logo-slide d-flex justify-content-center align-items-center fade-in-logo">
+      <div class="swiper-slide d-flex justify-content-center align-items-center fade-in-logo">
         <img src="{% static 'images/gazpromlogo.png' %}" alt="GazProm" style="max-height:60px;">
       </div>
-      <div class="logo-slide d-flex justify-content-center align-items-center fade-in-logo">
+      <div class="swiper-slide d-flex justify-content-center align-items-center fade-in-logo">
         <img src="{% static 'images/tengribanklogo.png' %}" alt="TengriBank" style="max-height:60px;">
       </div>
-      <div class="logo-slide d-flex justify-content-center align-items-center fade-in-logo">
+      <div class="swiper-slide d-flex justify-content-center align-items-center fade-in-logo">
         <img src="{% static 'images/kazakhtelecom_logo.png' %}" alt="KazakhTelecom" style="max-height:60px;">
       </div>
-      <div class="logo-slide d-flex justify-content-center align-items-center fade-in-logo">
+      <div class="swiper-slide d-flex justify-content-center align-items-center fade-in-logo">
         <img src="{% static 'images/compass_logo.png' %}" alt="Compass" style="max-height:60px;">
       </div>
-      <div class="logo-slide d-flex justify-content-center align-items-center fade-in-logo">
+      <div class="swiper-slide d-flex justify-content-center align-items-center fade-in-logo">
         <img src="{% static 'images/mlombard_logo.png' %}" alt="MLombard" style="max-height:60px;">
       </div>
-      <div class="logo-slide d-flex justify-content-center align-items-center fade-in-logo">
+      <div class="swiper-slide d-flex justify-content-center align-items-center fade-in-logo">
         <img src="{% static 'images/prydi_logo.png' %}" alt="Prydi" style="max-height:80px;">
       </div>
-      <div class="logo-slide d-flex justify-content-center align-items-center fade-in-logo">
+      <div class="swiper-slide d-flex justify-content-center align-items-center fade-in-logo">
         <img src="{% static 'images/sinooil_logo.png' %}" alt="Sinooil" style="max-height:80px;">
       </div>
-      <div class="logo-slide d-flex justify-content-center align-items-center fade-in-logo">
+      <div class="swiper-slide d-flex justify-content-center align-items-center fade-in-logo">
         <img src="{% static 'images/smallskif_logo.png' %}" alt="Small & Skif" style="max-height:60px;">
       </div>
-      <div class="logo-slide d-flex justify-content-center align-items-center fade-in-logo">
+      <div class="swiper-slide d-flex justify-content-center align-items-center fade-in-logo">
         <img src="{% static 'images/bigroup_logo.png' %}" alt="BiGroup" style="max-height:60px;">
       </div>
-      <div class="logo-slide d-flex justify-content-center align-items-center fade-in-logo">
+      <div class="swiper-slide d-flex justify-content-center align-items-center fade-in-logo">
         <img src="{% static 'images/altynmas_logo.png' %}" alt="Altynmas" style="max-height:60px;">
       </div>
-      <div class="logo-slide d-flex justify-content-center align-items-center fade-in-logo">
+      <div class="swiper-slide d-flex justify-content-center align-items-center fade-in-logo">
         <img src="{% static 'images/fb_logo.png' %}" alt="Freedom" style="max-height:60px;">
       </div>
     </div>
+    {% comment %} <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>  {% endcomment %}
+    <div class="swiper-pagination"></div>
   </div>
 </div>
 
@@ -247,6 +250,24 @@
   box-shadow: 0 8px 32px rgba(229,57,53,0.13);
   z-index: 2;
 }
+.swiper-pagination {
+  margin-top: 32px !important; 
+  position: static !important;
+  text-align: center;
+}
+
+.swiper-pagination-bullet {
+  background: #bdbdbd !important;
+  opacity: 1 !important;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+/* Цвет активной точки */
+.swiper-pagination-bullet-active {
+  background: #e02c24 !important;
+  transform: scale(1.4);
+}
+
 .fade-in-logo {
   opacity: 0;
   transform: translateY(30px) scale(0.95);
@@ -257,40 +278,6 @@
   opacity: 1;
   transform: translateY(0) scale(1);
 }
-.logo-ticker-wrapper {
-  overflow: hidden;
-  width: 100%;
-  padding: 40px 0;
-}
-
-.logo-ticker-track {
-  display: flex;
-  width: max-content;
-  animation: scroll-logos 35s linear infinite;
-  gap: 80px;
-  align-items: center;
-}
-
-.logo-slide img {
-  max-height: 60px;
-  opacity: 0.9;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.logo-slide img:hover {
-  transform: scale(1.1);
-  opacity: 1;
-}
-
-@keyframes scroll-logos {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
 </style>
 
 <script>
@@ -307,7 +294,28 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
 });
 
-
+document.addEventListener('DOMContentLoaded', function() {
+  new Swiper('.mySwiper', {
+    slidesPerView: 4,
+    spaceBetween: 40,
+    loop: true,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    breakpoints: {
+      1200: { slidesPerView: 5 },
+      992: { slidesPerView: 4 },
+      768: { slidesPerView: 3 },
+      576: { slidesPerView: 2 },
+      0:   { slidesPerView: 1 }
+    }
+  });
+});
 document.addEventListener("DOMContentLoaded", function() {
   document.querySelectorAll('.fade-in-logo').forEach((el, i) => {
     setTimeout(() => {
@@ -479,8 +487,10 @@ document.addEventListener("DOMContentLoaded", function() {
     font-size: 1rem;
   }
 }
+
 </style>
 
+<!-- Кнопка -->
 <button class="contact-button-fixed btn btn-outline-danger" onclick="togglePopup()">Связаться</button>
 
 <!-- Затемнение -->
@@ -533,7 +543,7 @@ function sendEmail() {
 }
 
 function sendWhatsApp() {
-  const phoneNumber = "79451234567";
+  const phoneNumber = "77001234567";
   const message = "Здравствуйте! Хочу получить консультацию.";
   const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
   window.open(url, "_blank");

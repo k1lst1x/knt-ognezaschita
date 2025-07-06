@@ -265,7 +265,13 @@
   background-color: #d00;
 }
 .nav-custom svg {
-  display: block;
+  transition: transform 0.2s;
+}
+.nav-custom.animate-left svg {
+  transform: translateX(-10px) scale(1.1);
+}
+.nav-custom.animate-right svg {
+  transform: translateX(10px) scale(1.1);
 }
 @media (max-width: 600px) {
   .testimonial-custom {
@@ -317,7 +323,7 @@
       text: "Пользуемся КНТ-1 и КНТ-Кабель уже больше двух лет. Краска хорошо ложится, ровно, без подтёков. Высыхает в заявленные сроки - это удобно, можно не задерживать работу. Очень достойный вариант по соотношению цены и качества",
       author: "Бауыржан, Нур-Султан (Астана)"
     },
-        {
+    {
       text: "Работали с КНТ-2 и КНТ-6 на крупных объектах — складских и производственных. Укрывистость высокая, расход соответствует заявленному.",
       author: "Владимир, Шымкент"
     }
@@ -329,29 +335,43 @@
 
   document.querySelector(".nav-custom.next").addEventListener("click", () => {
     current = (current + 1) % testimonials.length;
+    animateArrow('right');
     updateTestimonial();
   });
 
   document.querySelector(".nav-custom.prev").addEventListener("click", () => {
     current = (current - 1 + testimonials.length) % testimonials.length;
+    animateArrow('left');
     updateTestimonial();
   });
 
   function updateTestimonial() {
-    textEl.textContent = testimonials[current].text;
-    authorEl.textContent = testimonials[current].author;
+    textEl.classList.remove('visible');
+    authorEl.classList.remove('visible');
+
+    setTimeout(() => {
+      textEl.textContent = testimonials[current].text;
+      authorEl.textContent = testimonials[current].author;
+      textEl.classList.add('visible');
+      authorEl.classList.add('visible');
+    }, 200);
   }
-  function updateTestimonial() {
-  textEl.classList.remove('visible');
-  authorEl.classList.remove('visible');
-  setTimeout(() => {
-    textEl.textContent = testimonials[current].text;
-    authorEl.textContent = testimonials[current].author;
-    textEl.classList.add('visible');
-    authorEl.classList.add('visible');
-  }, 200); 
-}
+
+  function animateArrow(direction) {
+    const btn = document.querySelector(`.nav-custom.${direction === 'right' ? 'next' : 'prev'}`);
+    btn.classList.remove('animate-left', 'animate-right');
+    void btn.offsetWidth;
+    btn.classList.add(direction === 'right' ? 'animate-right' : 'animate-left');
+    setTimeout(() => {
+      btn.classList.remove('animate-left', 'animate-right');
+    }, 200);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    updateTestimonial();
+  });
 </script>
+
 
 <style>
 .contact-button-fixed {

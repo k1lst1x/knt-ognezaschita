@@ -30,7 +30,7 @@
   </div>
 </div>
 
-<footer class="footer text-white pt-5 pb-3">
+<footer id="footer" class="footer text-white pt-5 pb-3">
   <div class="container">
         {% comment %} <!-- карта -->
         <div class="row mb-4">
@@ -52,13 +52,13 @@
         <ul class="list-unstyled text-secondary mb-3">
           <li><a href="#" class="text-secondary text-decoration-none d-inline-block mb-4 ">Для металлоконструкций</a></li>
           <li><a href="#" class="text-secondary text-decoration-none d-inline-block mb-4">Огнезащитная обработка дерева</a></li>
-          <li><a href="#" class="text-secondary text-decoration-none d-inline-block mb-4">Защита кабельных линий от огня</a></li>
-          <li><a href="#" class="text-secondary text-decoration-none d-inline-block mb-4">Все продукты</a></li>
+          <li><a href="#" class="text-secondary text-decoration-none d-inline-block mb-4">Защита кабельных линий и кабельных проходок</a></li>
+          <li><a href="{% url 'landing_index' %}" class="text-secondary text-decoration-none d-inline-block mb-4">Все продукты</a></li>
         </ul>
         <div class="mt-4 mb-2 fw-bold">Социальные сети</div>
         <div>
-          <a href="#" class="text-secondary fs-5 me-3" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-          <a href="#" class="text-secondary fs-5" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          <a href="https://www.instagram.com/pnacompany?igsh=YW11ZGJ6eDNhYjhq" target="_blank" rel="noopener" class="text-secondary fs-5 me-3" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://wa.me/74951234567" target="_blank" rel="noopener" class="text-secondary fs-5" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
         </div>
       </div>
 
@@ -66,8 +66,8 @@
       <div class="col-12 col-md-3 mb-4 mb-md-0">
         <h5 class="fw-bold mb-4">Информация</h5>
         <ul class="list-unstyled text-secondary">
-          <li><a href="#" class="text-secondary text-decoration-none mb-4 d-inline-block">Контакты</a></li>
-          <li><a href="#" class="text-secondary text-decoration-none mb-4 d-inline-block">Доставка</a></li>
+          <li><a href="#footer" class="text-secondary text-decoration-none mb-4 d-inline-block">Контакты</a></li>
+          <li><a href="{% url 'delivery' %}" class="text-secondary text-decoration-none mb-4 d-inline-block">Доставка</a></li>
           <li><a href="#" class="text-secondary text-decoration-none mb-4 d-inline-block">Обратная связь</a></li>
           <li><a href="#" class="text-secondary text-decoration-none mb-4 d-inline-block">Способы оплаты</a></li>
         </ul>
@@ -77,10 +77,10 @@
       <div class="col-12 col-md-3 mb-4 mb-md-0">
         <h5 class="fw-bold mb-4">О компании</h5>
         <ul class="list-unstyled text-secondary">
-          <li><a href="#" class="text-secondary text-decoration-none d-inline-block mb-4">О нас</a></li>
+          <li><a href="{% url 'about' %}" class="text-secondary text-decoration-none d-inline-block mb-4">О нас</a></li>
           <li><a href="#" class="text-secondary text-decoration-none d-inline-block mb-4">Сертификаты</a></li>
-          <li><a href="#" class="text-secondary text-decoration-none d-inline-block mb-4">Проекты</a></li>
-          <li><a href="#" class="text-secondary text-decoration-none d-inline-block mb-4">Отзывы клиентов</a></li>
+          <li><a href="{% url 'feedback' %}" class="text-secondary text-decoration-none d-inline-block mb-4">Проекты</a></li>
+          <li><a href="{% url 'feedback' %}" class="text-secondary text-decoration-none d-inline-block mb-4">Отзывы клиентов</a></li>
         </ul>
       </div>
 
@@ -88,10 +88,13 @@
       <div class="col-12 col-md-3">
         <h5 class="fw-bold mb-4">Контакты</h5>
         <div class="text-secondary mb-4">Связаться с нами</div>
-        <div class="mb-2">
-          <i class="bi bi-telephone-fill text-danger me-2"></i>
-          <a href="tel:+74951234567" class="text-secondary">+7 (495) 123-45-67</a>
-        </div>
+          <div class="mb-2 d-flex align-items-start">
+            <i class="bi bi-telephone-fill text-danger me-2 mt-1"></i>
+            <div>
+              <div style="margin-top: 0.2rem;color: #9CA3AF">Александр</div>
+              <a href="tel:+74951234567" class="text-secondary d-block" style="text-decoration:none;">+7 (495) 123-45-67</a>
+            </div>
+          </div>
         <div class="mb-2">
           <i class="bi bi-envelope-fill text-danger me-2"></i>
           <a href="mailto:sales@polihim.ru" class="text-secondary">sales@polihim.ru</a>
@@ -114,8 +117,8 @@
     <!-- Линия и копирайт -->
     <div class="border-secondary pt-3 text-secondary " style="opacity:0.7;">
       COPYRIGHT © 2025 «KnT»<br>
-      ОГРН 1175275035319 | ИНН 5249156277 |<br>
-      КПП 524901001
+      ОГРН 1175275035319 | ИНН 5249156277 | КПП 524901001 <br>
+      Правообладатель: ООО «ПОЛИХИМ-Д»
     </div>
     
   </div>

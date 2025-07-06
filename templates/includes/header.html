@@ -9,7 +9,6 @@
   position: relative;
   min-height: 85vh;
 }
-
 .hero-wrapper::before {
   content: "";
   position: absolute;
@@ -17,15 +16,9 @@
   background-color: rgba(0, 0, 0, 0.5); /* затемнение */
   z-index: 1;
 }
-
 body {
     font-family: 'Montserrat', 'Inter', Arial, sans-serif;
 }
-
-/* * {
-  outline: 1px solid red; /* подсветка границ
-} */
-
 .custom-dropdown-menu {
   background-color: transparent !important;
   backdrop-filter: none !important; /* если было размытие */
@@ -36,7 +29,6 @@ body {
   transform: translateY(10px);
   transition: opacity 0.3s ease, transform 0.4s ease;   /* transform: scale(0.95) translateY(10px); transition: all 0.25s ease; */
 }
-
 .custom-dropdown-menu .dropdown-item {
   color: #fff !important;
   font-size: 1.25rem;
@@ -60,6 +52,14 @@ body {
   display: none !important;
 }
 
+.dropdown-submenu:hover > .dropdown-menu {
+  display: block !important;
+}
+.dropdown-submenu > .dropdown-menu {
+  left: 100%;
+  top: 0;
+  margin-top: 0;
+}
 .btn-rounded {
     border-radius: 50px !important;
     padding-left: 30px !important;
@@ -108,6 +108,18 @@ body {
   height: auto; /* Даст Bootstrap'у возможность вычислить высоту */
   transition: height 0.3s ease;
 }
+@media (max-width: 991.98px) {
+  .dropdown-submenu > .dropdown-menu {
+    position: static;
+    left: auto;
+    top: auto;
+    margin-left: 0;
+    display: none;
+  }
+  .dropdown-submenu.show > .dropdown-menu {
+    display: block !important;
+  }
+}
 </style>
 
 {% if is_homepage %}
@@ -128,7 +140,7 @@ body {
     <!-- Навигация (для больших экранов) -->
     <nav class="d-none d-md-flex gap-5 align-items-center ms-auto">
         <a href="{% url 'home' %}" class="text-white text-decoration-none hover-red">Главная</a>
-        <a href="#" class="text-white text-decoration-none hover-red">Контакты</a>
+        <a href="#footer" class="text-white text-decoration-none hover-red">Контакты</a>
         <a href="{% url 'delivery' %}" class="text-white text-decoration-none hover-red">Доставка</a>
         <a href="{% url 'feedback' %}" class="text-white text-decoration-none hover-red">Отзывы</a>
         <div class="dropdown">
@@ -142,12 +154,15 @@ body {
             <li><a class="dropdown-item fs-6 text-grey-object" href="#">Партнеры</a></li>
         </ul>
         </div>
-          <a href="{% url 'landing_index' %}" class="text-white border border-white rounded-[10px] px-6 py-2 flex items-center space-x-2 hover:bg-gray-300 hover:text-black transition">
+        <div class="dropdown">
+          <a href="#" class="dropdown-toggle text-white border border-white rounded-[10px] px-6 py-2 flex items-center space-x-2 hover:bg-gray-300 hover:text-black transition"
+             id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <span>Продукция</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
             </svg>
           </a>
+        </div>
     </nav>
 
     <!-- Кнопки справа -->
@@ -169,7 +184,7 @@ body {
   <div class="collapse d-md-none mt-3 w-100" id="mobileNav">
     <nav class="d-flex flex-column gap-2">
       <a href="{% url 'home' %}" class="text-white text-decoration-none hover-red">Главная</a>
-      <a href="#" class="text-white text-decoration-none hover-red">Контакты</a>
+      <a href="#footer" class="text-white text-decoration-none hover-red">Контакты</a>
       <a href="{% url 'delivery' %}" class="text-white text-decoration-none hover-red">Доставка</a>
       <a href="{% url 'feedback' %}" class="text-white text-decoration-none hover-red">Отзывы</a>
       <div class="dropdown">
@@ -192,13 +207,17 @@ body {
   </div>
 </header>
 
+<script>
+
+</script>
+
 {% if is_homepage %}
     <section class="text-white py-5">
       <div class="container">
         <div class="col-12 col-md-8 mx-auto text-center">
           <h1 class="display-6 fw-bold mb-4">Решения противопожарной защиты</h1>
           <p class="lead mb-4 fs-5">
-            Производим и поставляем сертифицированные огнезащитные материалы <br> для конструкций, кабелей и различных поверхностей по ГОСТ и ТУ
+            Производим и поставляем сертифицированные огнезащитные материалы <br> для металлических конструкций, кабелей и различных поверхностей в соответствии с <br>ГОСТ и ТУ, а так же производим полный спектр работ.
           </p>
           <div class="d-flex flex-column flex-sm-row gap-5 justify-content-center mt-20">
             <div class="d-flex flex-column flex-sm-row gap-5 justify-content-center">
