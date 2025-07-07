@@ -97,21 +97,27 @@
 
 <!-- Заголовок и описание -->
 <div class="container my-5 custom-margin-top">
-  <h2 class="mb-4" style="font-size:1.8rem;">
-    Надёжная <span class="text-danger fw-semibold">ОГНЕЗАЩИТА</span> от профессионалов
-  </h2>
-  <div class="fs-5 mb-5">
-    Разрабатываем и поставляем составы с учётом типа конструкции, задач проекта и нормативных требований — всё с подтверждённым качеством и сертификацией.
-  </div>
+    <h2 class="mb-4" style="font-size:1.8rem;">
+        Надёжная <span class="text-danger fw-semibold">ОГНЕЗАЩИТА</span> от профессионалов
+    </h2>
+    <div class="fs-5 mb-5">
+        Разрабатываем и поставляем составы с учётом типа конструкции, задач проекта и нормативных требований — всё с подтверждённым качеством и сертификацией.
+    </div>
 
-  <!-- Карточки -->
-<div class="row row-cols-1 row-cols-md-3 g-3 mx-auto mt-5" style="max-width: 1440px;">
-  <div class="col">
-    <div class="card h-100 border-0 position-relative overflow-hidden text-white" style="min-height: 500px;">
-      <img src="{% static 'images/card1.jpg' %}" class="card-img h-100" style="object-fit: cover; min-height: 500px;">
-      <div class="card-img-overlay d-flex flex-column justify-content-between p-4" style="background: rgba(0, 0, 0, 0.7);">
-        <div>
-          <h5 class="card-title mb-0" style="font-size:1.4rem;">НАШИ КРУПНЫЕ<br>ЗАКАЗЧИКИ</h5>
+    <!-- Карточки -->
+    <div class="row row-cols-1 row-cols-md-3 g-3 mx-auto mt-5" style="max-width: 1440px;">
+        <div class="col">
+            <div class="card h-100 border-0 position-relative overflow-hidden text-white" style="min-height: 500px;">
+                <img src="{% static 'images/card1.jpg' %}" class="card-img h-100" style="object-fit: cover; min-height: 500px;">
+                <div class="card-img-overlay d-flex flex-column justify-content-between p-4" style="background: rgba(0, 0, 0, 0.7);">
+                    <div>
+                        <h5 class="card-title mb-0" style="font-size:1.4rem;">НАШИ КРУПНЫЕ<br>ЗАКАЗЧИКИ</h5>
+                    </div>
+                    <a href="{% url 'feedback' %}" class="square-btn mt-3">
+                        <i class="bi bi-arrow-up-right-square-fill text-whitespace-normal fs-1"></i>
+                    </a>
+                </div>
+            </div>
         </div>
           <a href="{% url 'feedback' %}" class="square-btn mt-3">
             <i class="bi bi-arrow-up-right-square-fill text-white space-normal fs-1"></i>
@@ -126,25 +132,20 @@
         <div>
           <h5 class="card-title mb-0" style="font-size:1.4rem;">О КОМПАНИИ<br>КНТ</h5>
         </div>
-          <a href="{% url 'about' %}" class="square-btn mt-3">
-            <i class="bi bi-arrow-up-right-square-fill text-white fs-1"></i>
-          </a>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100 border-0 position-relative overflow-hidden text-white" style="min-height: 500px;">
-      <img src="{% static 'images/card1.jpg' %}" class="card-img h-100" style="object-fit: cover; min-height: 500px;">
-      <div class="card-img-overlay d-flex flex-column justify-content-between p-4" style="background: rgba(0, 0, 0, 0.7);">
-        <div>
-          <h5 class="card-title mb-0" style="font-size:1.4rem;">НАШИ КРУПНЫЕ<br>ЗАКАЗЧИКИ</h5>
+        <div class="col">
+            <div class="card h-100 border-0 position-relative overflow-hidden text-white" style="min-height: 500px;">
+                <img src="{% static 'images/card1.jpg' %}" class="card-img h-100" style="object-fit: cover; min-height: 500px;">
+                <div class="card-img-overlay d-flex flex-column justify-content-between p-4" style="background: rgba(0, 0, 0, 0.7);">
+                    <div>
+                        <h5 class="card-title mb-0" style="font-size:1.4rem;">НАШИ КРУПНЫЕ<br>ЗАКАЗЧИКИ</h5>
+                    </div>
+                    <a href="#" class="square-btn mt-3">
+                        <i class="bi bi-arrow-up-right-square-fill text-white fs-1"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-          <a href="#" class="square-btn mt-3">
-            <i class="bi bi-arrow-up-right-square-fill text-white fs-1"></i>
-          </a>
-      </div>
     </div>
-  </div>
 </div>
 
 <div class="container" style="margin-top: 200px; margin-bottom: 150px;">
@@ -236,7 +237,6 @@
         <img src="{% static 'images/fb_logo.png' %}" alt="Freedom" style="max-height:60px;">
       </div>      
     </div>
-  </div>
 </div>
 
 <style>
