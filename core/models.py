@@ -11,10 +11,12 @@ class Category(models.Model):
     title_in_list = models.CharField("Заголовок", max_length=100, blank=True)
     slug = models.SlugField("URL", unique=True)
     description = models.TextField("Описание", blank=True)
+    order = models.PositiveIntegerField("Порядок", default=0, db_index=True)
 
     class Meta:
         verbose_name = "Категория"
         verbose_name_plural = "Категории"
+        ordering = ["order"]
 
     def __str__(self):
         return self.name
@@ -33,9 +35,10 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     edited_at  = models.DateTimeField(auto_now=True)
     specs = models.JSONField("Технические характеристики", default=list, blank=True)
+    order = models.PositiveIntegerField("Порядок", default=0, db_index=True)
 
     class Meta:
-        ordering = ["-created_at"]
+        ordering = ["order"]
         verbose_name = "Продукт"
         verbose_name_plural = "Продукты"
 

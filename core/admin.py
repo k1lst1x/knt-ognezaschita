@@ -4,11 +4,14 @@ from .models import Product, Category
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ("name", "slug")
+    list_display = ("order", "name", "slug")
+    list_editable = ("order",)
+    list_display_links = ("name",)
     prepopulated_fields = {"slug": ("name",)}
     search_fields = ("name",)
-    verbose_name = "Категория"
-    verbose_name_plural = "Категории"
+    ordering = ("order", "name")
+    fields = ("order", "name", "title_in_list", "slug", "description")
+    readonly_fields = ()
 
 
 @admin.register(Product)
@@ -23,6 +26,7 @@ class ProductAdmin(admin.ModelAdmin):
     """
     # =====  СПИСОК  =====
     list_display   = (
+        "order",
         "name",
         "subtitle", 
         "slug",
@@ -32,10 +36,11 @@ class ProductAdmin(admin.ModelAdmin):
         "edited_at",
         "image_preview",
     )
-    list_editable  = ("is_active",)
+    list_editable  = ("order", "is_active",)
     list_filter    = ("is_active", "category", "created_at")
     search_fields  = ("name", "slug", "description")
-    ordering       = ("-created_at",)
+    ordering       = ("order", "-created_at")
+    list_display_links = ("name",)
 
     # =====  ФОРМА  =====
     prepopulated_fields = {"slug": ("name",)}
@@ -44,6 +49,7 @@ class ProductAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
             "fields": (
+                "order",
                 "is_active",
                 "name",
                 "subtitle",
