@@ -97,17 +97,6 @@ body {
   position: relative;
   z-index: 2;
 }
-/* landing.css или <style> внутри шаблона */
-    #mobileNav.collapse:not(.show) {
-  display: block; /* Чтобы transition работал */
-  height: 0;
-  overflow: hidden;
-  transition: height 0.3s ease;
-} */
-#mobileNav.collapse.show {
-  height: auto; /* Даст Bootstrap'у возможность вычислить высоту */
-  transition: height 0.3s ease;
-}
 @media (max-width: 991.98px) {
   .dropdown-submenu > .dropdown-menu {
     position: static;
@@ -120,6 +109,80 @@ body {
     display: block !important;
   }
 }
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  z-index: 2000;
+  display: none;
+}
+.mobile-menu-overlay.active {
+  display: block;
+}
+.mobile-menu-dark {
+  position: absolute;
+  top: 0; left: 40vw;
+  width: 60vw; height: 100vh;
+  z-index: 1;
+}
+.mobile-menu-nav {
+  position: absolute;
+  top: 0; left: 0;
+  width: 40vw;
+  min-width: 240px;
+  max-width: 340px;
+  height: 100vh;
+  background: #111;
+  z-index: 2001;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem 2rem 2rem 2rem;
+}
+.mobile-menu-list {
+  margin: 0;
+  padding: 0;
+  font-size: 1.25rem;
+}
+.mobile-menu-link {
+  display: block;
+  color: #fff;
+  font-size: 1.18rem;
+  font-weight: 500;
+  padding: 0.7rem 0;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.mobile-menu-link:hover {
+  color: #e53935;
+}
+.mobile-menu-sub {
+  margin: 0.2rem 0 0.7rem 1.2rem;
+  padding: 0;
+}
+.mobile-menu-sublink {
+  display: block;
+  color: #bdbdbd;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0.4rem 0;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.mobile-menu-sublink:hover {
+  color: #fff;
+}
+.btn-close {
+  filter: invert(1);
+  opacity: 0.7;
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  z-index: 10;
+}
+@media (max-width: 600px) {
+  .mobile-menu-nav { width: 80vw; min-width: 0; }
+  .mobile-menu-dark { left: 80vw; width: 20vw; }
+}
 </style>
 
 {% if is_homepage %}
@@ -129,12 +192,10 @@ body {
 <header class="text-white py-3 {% if not is_homepage %}bg-dark{% endif %} mb-5">
   <div class="container d-flex flex-wrap justify-content-between align-items-center">
     <!-- Логотип -->
-    <div class="d-flex align-items-center">
+    <div class="d-flex align-items-center mobile-logo">
     <a href="{% url 'home' %}">
       <img src="{% static 'images/logo.png' %}" alt="" style="height: 100px;" style="object-fit: cover;"/>
     </a>
-      <!-- <i class="bi bi-fire me-2 fs-3 text-danger"></i>
-      <span class="fs-4 fw-bold">OGNEZA</span> -->
     </div>
 
     <!-- Навигация (для больших экранов) -->
@@ -165,57 +226,64 @@ body {
         </div>
     </nav>
 
-    <!-- Кнопки справа -->
-    <!-- <div class="d-flex align-items-center gap-3">
-      <a href="#contact" class="d-none d-md-inline-flex text-white text-decoration-none align-items-center gap-1">
-        <i class="bi bi-telephone-fill"></i>
-        <span>Связаться</span>
-      </a>
-      <button class="btn btn-danger">Запросить предложение</button>
-    </div> -->
-    <!-- Кнопки справа -->
-        
-    <!-- Бургер-иконка для мобильных -->
-    <button class="navbar-toggler d-md-none text-white border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav">
-      <i class="bi bi-list fs-1"></i>
-    </button>
+<!-- Кнопка-гамбургер для мобильного меню -->
+<button class="d-md-none btn btn-dark position-fixed top-0 start-0 m-3 z-1030" id="mobileMenuBtn" style="width:48px;height:48px;border-radius:8px;">
+  <span class="navbar-toggler-icon"></span>
+</button>
 
 <!-- Мобильное меню -->
-  <div class="collapse d-md-none mt-3 w-100" id="mobileNav">
-    <nav class="d-flex flex-column gap-2">
-      <a href="{% url 'home' %}" class="text-white text-decoration-none hover-red">Главная</a>
-      <a href="#footer" class="text-white text-decoration-none hover-red">Контакты</a>
-      <a href="{% url 'delivery' %}" class="text-white text-decoration-none hover-red">Доставка</a>
-      <a href="{% url 'feedback' %}" class="text-white text-decoration-none hover-red">Отзывы</a>
-      <div class="dropdown">
-        <a href="#" class="dropdown-toggle text-white" id="aboutDropdownMobile" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          О нас
-          <i class="bi bi-chevron-down ms-1 fs-6"></i>
-        </a>
-        <ul class="dropdown-menu custom-dropdown-menu mt-3" aria-labelledby="aboutDropdownMobile">
-          <li><a class="dropdown-item text-white fs-6" href="#">Сертификаты</a></li>
-          <li><a class="dropdown-item fs-6 text-grey-object" href="#">Объекты</a></li>
-          <li><a class="dropdown-item fs-6 text-grey-object" href="#">Партнеры</a></li>
+<div id="mobileMenuOverlay" class="mobile-menu-overlay">
+  <div class="mobile-menu-dark"></div>
+  <nav class="mobile-menu-nav">
+    <button class="btn-close ms-auto mb-4" id="closeMobileMenu" aria-label="Закрыть"></button>
+    <ul class="mobile-menu-list list-unstyled">
+      <li><a href="{% url 'home' %}" class="mobile-menu-link">Главная</a></li>
+        <span class="mobile-menu-link">О нас</span>
+          <li><a href="#" class="mobile-menu-sublink">Объекты</a></li>
+          <li><a href="#" class="mobile-menu-sublink">Партнеры</a></li>
+          <li><a href="#" class="mobile-menu-sublink">Сертификаты</a></li>
+      <li><a href="{% url 'delivery' %}" class="mobile-menu-link">Доставка</a></li>
+      <li><a href="{% url 'feedback' %}" class="mobile-menu-link">Отзывы</a></li>
+      <li><a href="#footer" class="mobile-menu-link">Контакты</a></li>
+      <li>
+        <span class="mobile-menu-link">Продукция</span>
+        <ul class="mobile-menu-sub list-unstyled">
+          <li><a href="#" class="mobile-menu-sublink">Все товары</a></li>
+          <li><a href="#" class="mobile-menu-sublink">По категориям</a></li>
         </ul>
-      </div>
-        <a href="{% url 'landing_index' %}"
-          class="btn text-white border border-white rounded-pill btn-rounded px-3 py-1 mt-2 text-start d-block"
-          style="background:rgba(255,255,255,0.07); max-width: 160px;">
-          Продукция
-        </a>
-    </nav>
-  </div>
+      </li>
+    </ul>
+  </nav>
+</div>
 </header>
 
 <script>
-
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.getElementById('mobileMenuBtn');
+  var overlay = document.getElementById('mobileMenuOverlay');
+  var closeBtn = document.getElementById('closeMobileMenu');
+  btn && btn.addEventListener('click', function() {
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+  closeBtn && closeBtn.addEventListener('click', function() {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+  overlay && overlay.addEventListener('click', function(e) {
+    if (e.target.classList.contains('mobile-menu-dark')) {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+});
 </script>
 
 {% if is_homepage %}
     <section class="text-white py-5">
       <div class="container">
         <div class="col-12 col-md-8 mx-auto text-center">
-          <h1 class="display-6 fw-bold mb-4">Решения противопожарной защиты</h1>
+          <h1 class="display-6 fw-bold mb-4">Решения профессиональной защиты</h1>
           <p class="lead mb-4 fs-5">
             Производим и поставляем сертифицированные огнезащитные материалы <br> для металлических конструкций, кабелей и различных поверхностей в соответствии с <br>ГОСТ и ТУ, а так же производим полный спектр работ.
           </p>
