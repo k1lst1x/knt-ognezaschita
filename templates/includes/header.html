@@ -188,13 +188,53 @@ body {
     display: none !important;
   }
 }
+.burger-btn {
+  background: linear-gradient(135deg, #e53935 35%, #e74c3c 80%, #b71c1c 100%);
+  border: none;
+  box-shadow: 0 6px 24px rgba(183,28,28,0.14);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  gap: 7px;
+  transition: box-shadow 0.2s, background 0.2s;
+  cursor: pointer;
+  outline: none;
+  z-index: 1030;
+}
+.burger-btn:active,
+.burger-btn:focus {
+  box-shadow: 0 0 0 3px #b71c1c40;
+}
+.burger-bar {
+  display: block;
+  width: 29px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #fff 40%, #ffeaea 100%);
+  transition: all 0.32s cubic-bezier(.87,-0.41,.19,1.44);
+  box-shadow: 0 2px 8px 0 rgba(183,28,28,0.14);
+}
+
+/* Анимация при открытии */
+.burger-btn.open .burger-bar:nth-child(1) {
+  transform: translateY(11px) rotate(45deg);
+}
+.burger-btn.open .burger-bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0.1);
+}
+.burger-btn.open .burger-bar:nth-child(3) {
+  transform: translateY(-11px) rotate(-45deg);
+}
 </style>
 
 {% if is_homepage %}
   <div class="hero-wrapper">
 {% endif %}
 
-<header class="text-white py-3 {% if not is_homepage %}bg-dark{% endif %} mb-5">
+<header class="text-white py-3 {% if not is_homepage %}bg-dark{% endif %} mb-5 fixed-top" style="z-index:1050;">
   <div class="container d-flex flex-wrap justify-content-between align-items-center">
     <!-- Логотип -->
     <div class="d-flex align-items-center mobile-logo">
@@ -232,15 +272,23 @@ body {
     </nav>
 
 <!-- Кнопка-гамбургер для мобильного меню -->
-<button class="d-md-none btn btn-dark position-fixed top-0 start-0 m-3 z-1030" id="mobileMenuBtn" style="width:48px;height:48px;border-radius:8px;">
-  <span class="navbar-toggler-icon"></span>
+<!-- <button class="d-md-none burger-btn position-fixed top-0 start-0 m-3 z-1030" id="mobileMenuBtn" aria-label="Открыть меню" style="width:52px;height:52px;">
+  <span class="burger-bar"></span>
+  <span class="burger-bar"></span>
+  <span class="burger-bar"></span>
+</button> -->
+
+<button class="d-md-none burger-btn position-fixed top-0 end-0 m-3 z-1030" id="mobileMenuBtn" aria-label="Открыть меню" style="width:52px;height:52px;">
+  <span class="burger-bar"></span>
+  <span class="burger-bar"></span>
+  <span class="burger-bar"></span>
 </button>
 
 <!-- Мобильное меню -->
 <div id="mobileMenuOverlay" class="mobile-menu-overlay">
   <div class="mobile-menu-dark"></div>
   <nav class="mobile-menu-nav">
-    <button class="btn-close ms-auto mb-4" id="closeMobileMenu" aria-label="Закрыть"></button>
+    <!-- <button class="btn-close ms-auto mb-4" id="closeMobileMenu" aria-label="Закрыть"></button> -->
     <ul class="mobile-menu-list list-unstyled">
       <li><a href="{% url 'home' %}" class="mobile-menu-link">Главная</a></li>
         <span class="mobile-menu-link">О нас</span>
@@ -269,15 +317,18 @@ document.addEventListener('DOMContentLoaded', function() {
   var closeBtn = document.getElementById('closeMobileMenu');
   btn && btn.addEventListener('click', function() {
     overlay.classList.add('active');
+    btn.classList.add('open'); // добавляем класс для анимации
     document.body.style.overflow = 'hidden';
   });
   closeBtn && closeBtn.addEventListener('click', function() {
     overlay.classList.remove('active');
+    btn.classList.remove('open'); // убираем класс при закрытии
     document.body.style.overflow = '';
   });
   overlay && overlay.addEventListener('click', function(e) {
     if (e.target.classList.contains('mobile-menu-dark')) {
       overlay.classList.remove('active');
+      btn.classList.remove('open'); // убираем класс при клике вне меню
       document.body.style.overflow = '';
     }
   });
