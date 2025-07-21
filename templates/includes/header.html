@@ -260,7 +260,7 @@ body {
             <li><a class="dropdown-item fs-6 text-grey-object" href="#">Партнеры</a></li>
         </ul>
         </div>
-        <div class="dropdown">
+        <!-- <div class="dropdown">
           <a href="#" class="dropdown-toggle text-white border border-white rounded-[10px] px-6 py-2 flex items-center space-x-2 hover:bg-gray-300 hover:text-black transition"
              id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <span>Продукция</span>
@@ -268,7 +268,8 @@ body {
               <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
             </svg>
           </a>
-        </div>
+        </div> -->
+        <a href="{% url 'landing_index' %}" class="text-white text-decoration-none hover-red">Продукция</a>
     </nav>
 
 <!-- Кнопка-гамбургер для мобильного меню -->
@@ -301,8 +302,8 @@ body {
       <li>
         <span class="mobile-menu-link">Продукция</span>
         <ul class="mobile-menu-sub list-unstyled">
-          <li><a href="#" class="mobile-menu-sublink">Все товары</a></li>
-          <li><a href="#" class="mobile-menu-sublink">По категориям</a></li>
+          <li><a href="{% url 'landing_index' %}" class="mobile-menu-sublink">Все товары</a></li>
+          <!-- <li><a href="#" class="mobile-menu-sublink">По категориям</a></li> -->
         </ul>
       </li>
     </ul>
