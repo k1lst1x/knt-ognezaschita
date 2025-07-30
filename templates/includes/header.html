@@ -25,7 +25,7 @@ body {
   box-shadow: none !important;
   border: none !important;
   left: -23px !important;
-  top: -60% !important;
+  top: -50% !important;
   transform: translateY(10px);
   transition: opacity 0.3s ease, transform 0.4s ease;   /* transform: scale(0.95) translateY(10px); transition: all 0.25s ease; */
 }
@@ -228,6 +228,42 @@ body {
 .burger-btn.open .burger-bar:nth-child(3) {
   transform: translateY(-11px) rotate(-45deg);
 }
+/* Категория-родитель для расчета ширины */
+.dropdown-submenu {
+  position: relative;
+  width: max-content; /* ширина по тексту! */
+}
+
+.dropdown-submenu > .dropdown-menu {
+  left: 100%;
+  top: 0;
+  margin-left: 12px; /* отступ от конца категории, не маленький, не большой */
+  min-width: 220px;
+  background: #181818 !important;
+  border-radius: 11px;
+  box-shadow: 0 4px 24px #e5393520;
+}
+
+@media (min-width: 992px) {
+  .custom-dropdown-menu {
+    min-width: 260px;
+  }
+  .custom-dropdown-menu .dropdown-submenu > .dropdown-menu {
+    min-width: 220px;
+  }
+  .custom-dropdown-menu .dropdown-item {
+    white-space: nowrap; /* не переносить названия категорий на 2 строки! */
+  }
+}
+.mobile-menu-nav {
+  overflow-y: auto;
+  /* Всегда показывать скролл на мобильном, если переполнение */
+  -webkit-overflow-scrolling: touch;
+}
+.mobile-menu-list {
+  overflow-y: auto;
+  max-height: 82vh; /* чтобы не перекрывал хедер, если много пунктов */
+}
 </style>
 
 {% if is_homepage %}
@@ -249,17 +285,18 @@ body {
         <a href="#footer" class="text-white text-decoration-none hover-red">Контакты</a>
         <a href="{% url 'delivery' %}" class="text-white text-decoration-none hover-red">Доставка</a>
         <a href="{% url 'feedback' %}" class="text-white text-decoration-none hover-red">Отзывы</a>
-        <div class="dropdown">
+        <a href="{% url 'about' %}" class="text-white text-decoration-none hover-red">О нас</a>
+        <!-- <div class="dropdown">
           <a href="#" class="dropdown-toggle text-white" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             О нас
             <i class="bi bi-chevron-down ms-1 fs-6"></i>
           </a>
-        <ul class="dropdown-menu custom-dropdown-menu mt-3" aria-labelledby="aboutDropdown">
-            <li><a class="dropdown-item text-white fs-6" href="#">Сертификаты</a></li>
-            <li><a class="dropdown-item fs-6 text-grey-object" href="#">Объекты</a></li>
-            <li><a class="dropdown-item fs-6 text-grey-object" href="#">Партнеры</a></li>
-        </ul>
-        </div>
+          <ul class="dropdown-menu custom-dropdown-menu mt-3" aria-labelledby="aboutDropdown">
+              <li><a class="dropdown-item text-white fs-6" href="#">Сертификаты</a></li>
+              <li><a class="dropdown-item fs-6 text-grey-object" href="#">Объекты</a></li>
+              <li><a class="dropdown-item fs-6 text-grey-object" href="#">Партнеры</a></li>
+          </ul>
+        </div> -->
         <!-- <div class="dropdown">
           <a href="#" class="dropdown-toggle text-white border border-white rounded-[10px] px-6 py-2 flex items-center space-x-2 hover:bg-gray-300 hover:text-black transition"
              id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -269,7 +306,40 @@ body {
             </svg>
           </a>
         </div> -->
-        <a href="{% url 'landing_index' %}" class="text-white text-decoration-none hover-red">Продукция</a>
+        <div class="dropdown">
+          <a href="#" class="dropdown-toggle text-white border border-white rounded-[10px] px-6 py-2 flex items-center gap-2 hover-bg-red transition"
+             id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: 500;">
+            <span>Продукция</span>
+            <svg class="w-4 h-4" style="margin-top:-1px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </a>
+          <ul class="dropdown-menu custom-dropdown-menu mt-3 shadow-lg" aria-labelledby="productsDropdown">
+            <li>
+              <a href="{% url 'landing_index' %}" class="dropdown-item px-3 py-2 fw-semibold" style="color:#e74c3c;font-size:1.07em;">
+                <i class="bi bi-layers me-2" style="font-size:1.05em;opacity:.9;"></i>
+                Все товары
+              </a>
+            </li>
+            {% for cat in menu_categories %}
+              <li class="dropdown-submenu position-relative" style="min-width: 240px;">
+                <a class="dropdown-item d-flex justify-content-between align-items-center px-3 py-2" href="#" style="font-size: 1.11rem;">
+                  <span>{{ cat.name }}</span>
+                  <i class="bi bi-chevron-right ms-2" style="opacity:.7; font-size:1.05em;"></i>
+                </a>
+                <ul class="dropdown-menu" style="background:#181818;border-radius:11px;box-shadow:0 4px 24px #e5393520;">
+                  {% for product in cat.products.all %}
+                    <li>
+                      <a class="dropdown-item px-3 py-2" href="{% url 'product_detail' product.slug %}" style="font-size: 1rem;">
+                        {{ product.name }}
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </li>
+            {% endfor %}
+          </ul>          
+        </div>        
     </nav>
 
 <!-- Кнопка-гамбургер для мобильного меню -->
@@ -300,12 +370,38 @@ body {
       <li><a href="{% url 'feedback' %}" class="mobile-menu-link">Отзывы</a></li>
       <li><a href="#footer" class="mobile-menu-link">Контакты</a></li>
       <li>
-        <span class="mobile-menu-link">Продукция</span>
-        <ul class="mobile-menu-sub list-unstyled">
-          <li><a href="{% url 'landing_index' %}" class="mobile-menu-sublink">Все товары</a></li>
-          <!-- <li><a href="#" class="mobile-menu-sublink">По категориям</a></li> -->
-        </ul>
-      </li>
+        <span class="mobile-menu-link d-flex justify-content-between align-items-center" data-toggle="mobile-category" style="font-size:1.18rem;font-weight:500;">
+          Продукция
+          <i class="bi bi-chevron-down ms-2" style="font-size:1.14em; opacity:.8;"></i>
+        </span>
+        <ul class="mobile-menu-sub list-unstyled d-none" id="mobileCategories" style="margin-top:.3rem;">
+          <li>
+            <a href="{% url 'landing_index' %}" class="mobile-menu-sublink fw-semibold" style="color:#e74c3c;font-size:1.08em;">
+              <i class="bi bi-layers me-2" style="font-size:1.05em;opacity:.9;"></i>
+              Все товары
+            </a>
+          </li>
+          <li><hr style="border-color: #b71c1c22; margin: 3px 0 5px 0;"></li>
+          {% for cat in menu_categories %}
+            <li>
+              <span class="mobile-menu-sublink d-flex justify-content-between align-items-center"
+                    data-toggle="mobile-products-{{cat.id}}" style="cursor:pointer; font-weight:500;">
+                {{ cat.name }}
+                <i class="bi bi-chevron-down ms-1" style="font-size:.95em; opacity:.6;"></i>
+              </span>
+              <ul class="mobile-menu-sub list-unstyled d-none" id="mobileProducts-{{cat.id}}" style="margin-left:1rem; margin-top:2px;">
+                {% for product in cat.products.all %}
+                  <li>
+                    <a href="{% url 'product_detail' product.slug %}" class="mobile-menu-sublink" style="font-size:0.97rem;">
+                      {{ product.name }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </li>
+          {% endfor %}
+        </ul>        
+      </li>      
     </ul>
   </nav>
 </div>
@@ -332,6 +428,22 @@ document.addEventListener('DOMContentLoaded', function() {
       btn.classList.remove('open'); // убираем класс при клике вне меню
       document.body.style.overflow = '';
     }
+  });
+});
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('[data-toggle="mobile-category"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      document.getElementById('mobileCategories').classList.toggle('d-none');
+      // Поворот стрелки
+      el.querySelector('.bi').classList.toggle('rotate-180');
+    });
+  });
+  document.querySelectorAll('[data-toggle^="mobile-products-"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      var id = el.getAttribute('data-toggle').replace('mobile-products-', '');
+      document.getElementById('mobileProducts-' + id).classList.toggle('d-none');
+      el.querySelector('.bi').classList.toggle('rotate-180');
+    });
   });
 });
 </script>
