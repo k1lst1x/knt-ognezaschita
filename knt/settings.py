@@ -16,19 +16,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-brx3_esvewr)v)76fl-w1yi_5fxeubp_lf8zc(2(h76*acz@3)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True  # В продакшене обязательно False, иначе утечка данных
+DEBUG = False  # В продакшене обязательно False, иначе утечка данных
 
 if DEBUG:
     ALLOWED_HOSTS = ["*"]
 else:
     ALLOWED_HOSTS = [
-        "knt-ognezaschita.duckdns.org",
+        "knt-ognezaschita.kz",
     ]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:8000",
     "http://127.0.0.1:8000",
-    "https://knt-ognezaschita.duckdns.org",
+    "https://knt-ognezaschita.kz",
 ]
 
 
@@ -88,13 +88,24 @@ WSGI_APPLICATION = 'knt.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'knt_ognezaschita_kz',
+#         'USER': 'knt_ognezaschita_user',
+#         'PASSWORD': 's8SVVhh3640B',
+#         'HOST': '185.22.67.9',
+#         'PORT': '5432',
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'knt_ognezaschita_kz',
         'USER': 'knt_ognezaschita_user',
         'PASSWORD': 's8SVVhh3640B',
-        'HOST': '185.22.67.9',
+        'HOST': '185.22.67.9' if DEBUG else '127.0.0.1',
         'PORT': '5432',
     }
 }
