@@ -88,5 +88,5 @@ def knt_1(request):
     )
 
 def robots_txt(request):
-    template = loader.get_template('core/robots.txt')
+    template = loader.get_template('robots.txt')
     return HttpResponse(template.render(), content_type="text/plain")
