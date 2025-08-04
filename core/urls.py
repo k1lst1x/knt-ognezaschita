@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import landing_index, index, home, about, delivery, feedback, knt_1, product_detail
+from .views import landing_index, index, home, about, delivery, feedback, knt_1, product_detail, robots_txt
 
 urlpatterns = [
     path('', home, name='home'),
@@ -9,5 +9,6 @@ urlpatterns = [
     path('delivery', delivery, name='delivery'),
     path('feedback', feedback, name='feedback'),
     # path('knt_1', knt_1, name='knt_1'),
-    path('products/<slug:slug>/', product_detail, name='product_detail')
+    path('products/<slug:slug>/', product_detail, name='product_detail'),
+    path('robots.txt', robots_txt, name='robots_txt'),
 ]

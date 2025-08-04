@@ -1,5 +1,7 @@
 from .models import Product, Category
 from django.shortcuts import get_object_or_404, render
+from django.http import HttpResponse
+from django.template import loader
 
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug)
@@ -84,3 +86,7 @@ def knt_1(request):
             'is_homepage': True,
         }
     )
+
+def robots_txt(request):
+    template = loader.get_template('core/robots.txt')
+    return HttpResponse(template.render(), content_type="text/plain")

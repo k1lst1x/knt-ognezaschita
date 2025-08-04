@@ -1,5 +1,6 @@
 # shop/models.py
 from django.db import models
+from django.urls import reverse
 # If you’ll switch to PostgreSQL later and prefer a real ARRAY column,
 # uncomment the next import and swap JSONField → ArrayField.
 # from django.contrib.postgres.fields import ArrayField
@@ -44,6 +45,9 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('product_detail', args=[self.slug])
 
     @staticmethod
     def get_default_specs():
