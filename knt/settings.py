@@ -23,6 +23,7 @@ if DEBUG:
 else:
     ALLOWED_HOSTS = [
         "knt-ognezaschita.kz",
+        "www.knt-ognezaschita.kz",
     ]
 
 CSRF_TRUSTED_ORIGINS = [

@@ -236,7 +236,7 @@
   <h3 id="popupTitle">Оставьте сообщение на WhatsApp или email</h3>
   <div class="desc">Мы обязательно ответим вам в ближайшее время</div>
   <hr style="height: 2px; background-color: gray; border: none;">
-  <button class="custom-send-btn" onclick="sendEmail()">sales@polihim.ru</button>
+  <button class="custom-send-btn" onclick="sendEmail()">kntognezachita@gmail.com</button>
   <button class="send-btn" onclick="sendWhatsApp()">Написать WhatsApp</button>
 </div>
 
@@ -277,14 +277,14 @@ function togglePopup() {
 }
 
 function sendEmail() {
-  const email = "sales@polihim.ru";
+  const email = "kntognezachita@gmail.com";
   const subject = "Сообщение с сайта";
   const body = "Здравствуйте! Хочу получить консультацию.";
   window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
 function sendWhatsApp() {
-  const phoneNumber = "74951234567";
+  const phoneNumber = "77474347258";
   const message = "Здравствуйте! Хочу получить консультацию.";
   const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
   window.open(url, "_blank");
