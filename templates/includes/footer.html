@@ -28,8 +28,8 @@
         <div class="mb-2 d-flex align-items-center" style="color: #C74141; font-size: 1.13rem;">
           <i class="bi bi-person-circle me-2" style="color:#B74141;"></i>Алексей
         </div>        
-        <a href="tel:+74951234567" class="d-block mb-2" style="color: #C74141; text-decoration:none;">
-          <i class="bi bi-telephone text-black me-2 mt-1"></i>+7 (495) 123-45-67</a>
+        <a href="tel:+77777218363" class="d-block mb-2" style="color: #C74141; text-decoration:none;">
+          <i class="bi bi-telephone text-black me-2 mt-1"></i>+7 (777) 721-83-63</a>
         <a href="mailto:kntognezachita@gmail.com" class="mb-3 d-block" style="color: #C74141;">
           <i class="bi bi-envelope text-black me-2"></i>kntognezachita@gmail.com</a>
         <div class=" mt-2 mb-1" style="font-weight: 500; color: #232323">Наш офис и склад</div>
@@ -73,9 +73,10 @@
       <div class="col-12 col-md-3 mb-4 mb-md-0">
         <h5 class="fw-bold mb-4">Огнезащита объектов</h5>
         <ul class="list-unstyled text-secondary mb-3">
-          <li><a href="#" class="text-secondary text-decoration-none d-inline-block mb-4 ">Для металлоконструкций</a></li>
+          <!-- <li><a href="#" class="text-secondary text-decoration-none d-inline-block mb-4 ">Для металлоконструкций</a></li>
           <li><a href="#" class="text-secondary text-decoration-none d-inline-block mb-4">Огнезащитная обработка дерева</a></li>
-          <li><a href="#" class="text-secondary text-decoration-none d-inline-block mb-4">Защита кабельных линий и кабельных проходок</a></li>
+          <li><a href="#" class="text-secondary text-decoration-none d-inline-block mb-4">Защита кабельных линий и кабельных проходок</a></li> -->
+          <li><a href="{% static 'files/Каталог ООО ПОЛИХИМ-Д.pdf' %}" target="_blank" class="text-secondary text-decoration-none d-inline-block mb-4">Каталог PDF</a></li>
           <li><a href="{% url 'landing_index' %}" class="text-secondary text-decoration-none d-inline-block mb-4">Все продукты</a></li>
         </ul>
         <div class="mt-4 mb-2 fw-bold">Социальные сети</div>
@@ -91,8 +92,7 @@
         <ul class="list-unstyled text-secondary">
           <li><a href="#footer" class="text-secondary text-decoration-none mb-4 d-inline-block">Контакты</a></li>
           <li><a href="{% url 'delivery' %}" class="text-secondary text-decoration-none mb-4 d-inline-block">Доставка</a></li>
-          <li><a href="#" class="text-secondary text-decoration-none mb-4 d-inline-block">Обратная связь</a></li>
-          <li><a href="#" class="text-secondary text-decoration-none mb-4 d-inline-block">Способы оплаты</a></li>
+          <li><a href="{% url 'delivery' %}#payment" class="text-secondary text-decoration-none mb-4 d-inline-block">Способы оплаты</a></li>
         </ul>
       </div>
 
@@ -101,7 +101,6 @@
         <h5 class="fw-bold mb-4">О компании</h5>
         <ul class="list-unstyled text-secondary">
           <li><a href="{% url 'about' %}" class="text-secondary text-decoration-none d-inline-block mb-4">О нас</a></li>
-          <li><a href="#" class="text-secondary text-decoration-none d-inline-block mb-4">Сертификаты</a></li>
           <li><a href="{% url 'feedback' %}" class="text-secondary text-decoration-none d-inline-block mb-4">Проекты</a></li>
           <li><a href="{% url 'feedback' %}" class="text-secondary text-decoration-none d-inline-block mb-4">Отзывы клиентов</a></li>
         </ul>
