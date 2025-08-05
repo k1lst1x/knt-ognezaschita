@@ -77,7 +77,7 @@
           <li><a href="#" class="text-secondary text-decoration-none d-inline-block mb-4">Огнезащитная обработка дерева</a></li>
           <li><a href="#" class="text-secondary text-decoration-none d-inline-block mb-4">Защита кабельных линий и кабельных проходок</a></li> -->
           <li><a href="{% static 'files/Каталог ООО ПОЛИХИМ-Д.pdf' %}" target="_blank" class="text-secondary text-decoration-none d-inline-block mb-4">Каталог PDF</a></li>
-          <li><a href="{% url 'landing_index' %}" class="text-secondary text-decoration-none d-inline-block mb-4">Все продукты</a></li>
+          <li><a href="{% url 'landing_index' %}#catalog" class="text-secondary text-decoration-none d-inline-block mb-4">Все продукты</a></li>
         </ul>
         <div class="mt-4 mb-2 fw-bold">Социальные сети</div>
         <div>
@@ -90,8 +90,8 @@
       <div class="col-12 col-md-3 mb-4 mb-md-0">
         <h5 class="fw-bold mb-4">Информация</h5>
         <ul class="list-unstyled text-secondary">
-          <li><a href="#footer" class="text-secondary text-decoration-none mb-4 d-inline-block">Контакты</a></li>
-          <li><a href="{% url 'delivery' %}" class="text-secondary text-decoration-none mb-4 d-inline-block">Доставка</a></li>
+          <li><a href="#contacts-section" class="text-secondary text-decoration-none mb-4 d-inline-block">Контакты</a></li>
+          <li><a href="{% url 'delivery' %}#delivery-section" class="text-secondary text-decoration-none mb-4 d-inline-block">Доставка</a></li>
           <li><a href="{% url 'delivery' %}#payment" class="text-secondary text-decoration-none mb-4 d-inline-block">Способы оплаты</a></li>
         </ul>
       </div>
@@ -100,9 +100,9 @@
       <div class="col-12 col-md-3 mb-4 mb-md-0">
         <h5 class="fw-bold mb-4">О компании</h5>
         <ul class="list-unstyled text-secondary">
-          <li><a href="{% url 'about' %}" class="text-secondary text-decoration-none d-inline-block mb-4">О нас</a></li>
-          <li><a href="{% url 'feedback' %}" class="text-secondary text-decoration-none d-inline-block mb-4">Проекты</a></li>
-          <li><a href="{% url 'feedback' %}" class="text-secondary text-decoration-none d-inline-block mb-4">Отзывы клиентов</a></li>
+          <li><a href="{% url 'about' %}#about-section" class="text-secondary text-decoration-none d-inline-block mb-4">О нас</a></li>
+          <li><a href="{% url 'feedback' %}#feedback-section" class="text-secondary text-decoration-none d-inline-block mb-4">Объекты</a></li>
+          <li><a href="{% url 'feedback' %}#responses" class="text-secondary text-decoration-none d-inline-block mb-4">Отзывы клиентов</a></li>
         </ul>
       </div>
 
