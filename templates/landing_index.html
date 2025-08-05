@@ -7,7 +7,7 @@
     {% regroup products by category as categories_list %}
 
     {% for cat in categories_list %}
-      <div class="mb-5">
+      <div class="mb-5" id="catalog">
         <div class="d-flex align-items-center mb-4">
           <h2 class="h3 me-3 mb-4 " style="font-size:1.7rem; font-weight:400; margin-bottom:2.5rem;">
             Огнезащитные краски для <span style="color:#e74c3c;">{{ cat.grouper.title_in_list }}</span>
