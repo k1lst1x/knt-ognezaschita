@@ -276,6 +276,10 @@ body {
     margin-bottom: 1.2rem !important;
   }
 }
+.catalog-btn-border {
+  border: 2px solid #ffffff3a !important;
+}
+
 </style>
 
 {% if is_homepage %}
@@ -469,7 +473,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="d-flex flex-column flex-sm-row gap-5 justify-content-center mt-20">
             <div class="d-flex flex-column flex-sm-row gap-5 justify-content-center">
                 <a href="{% url 'landing_index' %}" class="btn btn-danger btn-lg rounded-pill btn-rounded btn-lg-custom">ВЫБРАТЬ СОСТАВ</a>
-                <a href="{% static 'files/Каталог ООО ПОЛИХИМ-Д.pdf' %}" target="_blank" class="btn btn-link text-white btn-lg rounded-pill btn-rounded btn-lg-custom text-decoration-none">КАТАЛОГ PDF
+                <a href="{% static 'files/Каталог ООО ПОЛИХИМ-Д.pdf' %}" target="_blank" class="btn btn-link text-white btn-lg rounded-pill btn-rounded btn-lg-custom text-decoration-none catalog-btn-border">КАТАЛОГ PDF
                   <i class="bi bi-download ms-3"></i>
                 </a>
             </div>
