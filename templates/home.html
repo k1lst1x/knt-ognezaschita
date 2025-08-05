@@ -155,7 +155,7 @@
   </div>
 </div>
 
-<div class="container" style="margin-top: 200px; margin-bottom: 150px;">
+<div class="container" style="margin-top: 180px; margin-bottom: 120px;">
   <div class="logo-ticker-wrapper">
     <div class="logo-ticker-track">
       <!-- Оригинальные логотипы -->
@@ -243,6 +243,26 @@
       </div>
       <div class="logo-slide d-flex justify-content-center align-items-center fade-in-logo">
         <img src="{% static 'images/fb_logo.png' %}" alt="Freedom" style="max-height:60px;">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="testimonial-container-custom" style="margin-top:2em; margin-bottom:4em;">
+  <div class="testimonial-custom">
+    <p class="text-custom fade-anim visible" id="testimonialText">
+      Работали с КНТ-7 на объекте с неидеальными условиями — внутри неотапливаемого здания. Температура была на грани допустимой, но краска легла ровно, без пузырей и трещин. Удобно, что состав уже готов к применению и не требует дополнительного смешивания. После высыхания нанесли финишную эмаль — всё держится отлично
+    </p>
+    <hr class="hr-custom" />
+    <div class="d-flex align-items-center justify-content-between mt-3">
+      <p class="author-custom fade-anim visible mb-0" id="testimonialAuthor">Александр, Усть–Каменогорск</p>
+      <div class="nav-buttons-custom ms-3">
+        <button class="nav-custom prev" aria-label="Предыдущий отзыв" type="button">
+          <svg width="28" height="28" viewBox="0 0 28 28"><polyline points="17 8 11 14 17 20" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="nav-custom next" aria-label="Следующий отзыв" type="button">
+          <svg width="28" height="28" viewBox="0 0 28 28"><polyline points="11 8 17 14 11 20" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
       </div>
     </div>
   </div>
@@ -342,7 +362,115 @@
     transform: translateX(-50%);
   }
 }
-
+</style>
+  
+<style> /* Стили для отзывов */
+.testimonial-container-custom {
+  max-width: 760px;
+  margin: 48px auto 0 auto;
+  padding: 0;
+  background: transparent;
+}
+.testimonial-custom {
+  border: 1px solid #444;
+  border-radius: 40px 0 40px 0;
+  background: #faf8f8;
+  padding: 48px 48px 32px 48px;
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: #232323;
+  box-shadow: none;
+  position: relative;
+  transition: min-height 0.2s;
+}
+.fade-anim {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.fade-anim.visible {
+  opacity: 1;
+  transition: opacity 0.2s;
+}
+.text-custom {
+  font-size: 1.15rem;
+  color: #403E3B;
+  margin-bottom: 24px;
+  line-height: 1.5;
+  text-align: left;
+}
+.hr-custom {
+  border: none;
+  border-top: 2px solid #000;
+  margin: 24px 0 24px 0;
+}
+.author-custom {
+  font-size: 1rem;
+  color: #645C55;
+  margin-bottom: 0;
+  margin-top: 0;
+  text-align: left;
+}
+.nav-buttons-custom {
+  display: flex;
+  justify-content: flex-start;
+  gap: 18px;
+  margin-top: 32px;
+}
+.nav-custom {
+  background-color: #f33;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: none;
+  padding: 0;
+}
+.nav-custom:hover {
+  background-color: #d00;
+}
+.nav-custom svg {
+  transition: transform 0.2s;
+}
+.nav-custom.animate-left svg {
+  transform: translateX(-10px) scale(1.1);
+}
+.nav-custom.animate-right svg {
+  transform: translateX(10px) scale(1.1);
+}
+@media (max-width: 600px) {
+  .testimonial-custom {
+    padding: 24px 12px 20px 12px;
+    font-size: 1rem;
+  }
+  .testimonial-container-custom {
+    max-width: 98vw;
+  }
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+@media (max-width: 991px) {
+  .row.align-items-center.mb-5 {
+    flex-direction: column !important;
+    text-align: center;
+  }
+  .row.align-items-center.mb-5 .col-md-6 {
+    max-width: 100%;
+  }
+  .col-md-6.text-block-offset {
+    padding-left: 32px;
+  }
+}
 </style>
 
 <script>
@@ -368,23 +496,75 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+<script>   // отзывы
+  const testimonials = [
+    {
+      text: "Работали с КНТ-7 на объекте с неидеальными условиями — внутри неотапливаемого здания. Температура была на грани допустимой, но краска легла ровно, без пузырей и трещин. Удобно, что состав уже готов к применению и не требует дополнительного смешивания. После высыхания нанесли финишную эмаль — всё держится отлично",
+      author: "Александр, Усть–Каменогорск"
+    },
+    {
+      text: "Работаем с составами КНТ не впервые — используем их на промышленных объектах. Удобны в применении: легко наносятся, ложатся ровно, без лишних сложностей. За время использования показали себя как надёжное решение, с которым не возникает проблем на стройке",
+      author: "Нурлан, Караганда"
+    },
+    {
+      text: "КНТ-3 выбирали для защиты древесных материалов внутри помещений. Состав поставляется комплектом из двух компонентов — удобно, что всё уже отмерено для смешивания. Документация на руках, всё понятно. После нанесения образуется ровное, аккуратное полуматовое покрытие без подтёков. Работать с ним удобно",
+      author: "Даурен, Алматы"
+    },
+    {
+      text: "Пользуемся КНТ-1 и КНТ-Кабель уже больше двух лет. Краска хорошо ложится, ровно, без подтёков. Высыхает в заявленные сроки - это удобно, можно не задерживать работу. Очень достойный вариант по соотношению цены и качества",
+      author: "Бауыржан, Нур-Султан (Астана)"
+    },
+    {
+      text: "Работали с КНТ-2 и КНТ-6 на крупных объектах — складских и производственных. Укрывистость высокая, расход соответствует заявленному.",
+      author: "Владимир, Шымкент"
+    }
+  ];
+
+  let current = 0;
+  const textEl = document.getElementById("testimonialText");
+  const authorEl = document.getElementById("testimonialAuthor");
+
+  document.querySelector(".nav-custom.next").addEventListener("click", () => {
+    current = (current + 1) % testimonials.length;
+    animateArrow('right');
+    updateTestimonial();
+  });
+
+  document.querySelector(".nav-custom.prev").addEventListener("click", () => {
+    current = (current - 1 + testimonials.length) % testimonials.length;
+    animateArrow('left');
+    updateTestimonial();
+  });
+
+  function updateTestimonial() {
+    textEl.classList.remove('visible');
+    authorEl.classList.remove('visible');
+
+    setTimeout(() => {
+      textEl.textContent = testimonials[current].text;
+      authorEl.textContent = testimonials[current].author;
+      textEl.classList.add('visible');
+      authorEl.classList.add('visible');
+    }, 200);
+  }
+
+  function animateArrow(direction) {
+    const btn = document.querySelector(`.nav-custom.${direction === 'right' ? 'next' : 'prev'}`);
+    btn.classList.remove('animate-left', 'animate-right');
+    void btn.offsetWidth;
+    btn.classList.add(direction === 'right' ? 'animate-right' : 'animate-left');
+    setTimeout(() => {
+      btn.classList.remove('animate-left', 'animate-right');
+    }, 200);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    updateTestimonial();
+  });
+</script>
+
 <style>
 
-@media (max-width: 768px) {
-  h1 {
-    font-size: 1.8rem;
-  }
-
-  .btn-lg-custom {
-    font-size: 1rem;
-    padding: 0.75rem 1.5rem;
-    min-width: 160px;
-  }
-
-  .lead {
-    font-size: 1rem;
-  }
-}
 </style>
 
 {% endblock %}

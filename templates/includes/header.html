@@ -236,13 +236,17 @@ body {
 }
 
 .dropdown-submenu > .dropdown-menu {
-  left: 100%;
-  top: 0;
-  margin-left: 0px; /* отступ от конца категории, не маленький, не большой */
+  position: static; /* или absolute + top:100% */ 
+  left: auto;
+  top: auto;
   min-width: 220px;
-  background: transparent !important;
+  margin-top: 2px;
   border-radius: 11px;
   box-shadow: 0 4px 24px #e5393520;
+  display: none;  
+  margin-left: 0px; /* отступ от конца категории, не маленький, не большой */
+  background: #86868669 !important;
+
 }
 
 @media (min-width: 992px) {
@@ -265,6 +269,13 @@ body {
   overflow-y: auto;
   max-height: 82vh; /* чтобы не перекрывал хедер, если много пунктов */
 }
+@media (max-width: 600px) {
+  .hero-wrapper .lead.fs-5 {
+    font-size: 1rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 1.2rem !important;
+  }
+}
 </style>
 
 {% if is_homepage %}
@@ -283,10 +294,10 @@ body {
     <!-- Навигация (для больших экранов) -->
     <nav class="d-none d-md-flex gap-5 align-items-center ms-auto">
         <a href="{% url 'home' %}" class="text-white text-decoration-none hover-red">Главная</a>
-        <a href="#footer" class="text-white text-decoration-none hover-red">Контакты</a>
-        <a href="{% url 'delivery' %}" class="text-white text-decoration-none hover-red">Доставка</a>
-        <a href="{% url 'feedback' %}" class="text-white text-decoration-none hover-red">Отзывы</a>
-        <a href="{% url 'about' %}" class="text-white text-decoration-none hover-red">О нас</a>
+        <a href="#contacts-section" class="text-white text-decoration-none hover-red">Контакты</a>
+        <a href="{% url 'delivery' %}#delivery-section" class="text-white text-decoration-none hover-red">Доставка</a>
+        <a href="{% url 'feedback' %}#feedback-section" class="text-white text-decoration-none hover-red">Отзывы</a>
+        <a href="{% url 'about' %}#about-section" class="text-white text-decoration-none hover-red">О нас</a>
         <!-- <div class="dropdown">
           <a href="#" class="dropdown-toggle text-white" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             О нас
@@ -318,7 +329,6 @@ body {
           <ul class="dropdown-menu custom-dropdown-menu mt-3 shadow-lg" aria-labelledby="productsDropdown">
             <li>
               <a href="{% url 'landing_index' %}" class="dropdown-item px-3 py-2 fw-semibold" style="color:#e74c3c;font-size:1.07em;">
-                <i class="bi bi-layers me-2" style="font-size:1.05em;opacity:.9;"></i>
                 Все товары
               </a>
             </li>
@@ -326,7 +336,7 @@ body {
               <li class="dropdown-submenu position-relative" style="min-width: 240px;">
                 <a class="dropdown-item d-flex justify-content-between align-items-center px-3 py-2" href="#" style="font-size: 1.11rem;">
                   <span>{{ cat.name }}</span>
-                  <i class="bi bi-chevron-right ms-2" style="opacity:.7; font-size:1.05em;"></i>
+                  <i class="bi bi-chevron-down ms-2" style="opacity:.7; font-size:1.05em;"></i>
                 </a>
                 <ul class="dropdown-menu" style="background:#181818;border-radius:11px;box-shadow:0 4px 24px #e5393520;">
                   {% for product in cat.products.all %}
@@ -363,12 +373,12 @@ body {
     <!-- <button class="btn-close ms-auto mb-4" id="closeMobileMenu" aria-label="Закрыть"></button> -->
     <ul class="mobile-menu-list list-unstyled">
       <li><a href="{% url 'home' %}" class="mobile-menu-link">Главная</a></li>
-        <span class="mobile-menu-link">О нас</span>
-          <li><a href="#" class="mobile-menu-sublink">Объекты</a></li>
-          <li><a href="{% url 'feedback' %}" class="mobile-menu-sublink">Проекты</a></li>
-      <li><a href="{% url 'delivery' %}" class="mobile-menu-link">Доставка</a></li>
-      <li><a href="{% url 'feedback' %}" class="mobile-menu-link">Отзывы</a></li>
-      <li><a href="#footer" class="mobile-menu-link">Контакты</a></li>
+        <span class="mobile-menu-link"><a href="{% url 'about' %}#about-section" class="mobile-menu-link">О нас</a></span>
+          <li><a href="{% url 'feedback' %}#feedback-section" class="mobile-menu-sublink">Объекты</a></li>
+          <li><a href="{% url 'feedback' %}#feedback-section" class="mobile-menu-sublink">Проекты</a></li>
+          <li><a href="{% url 'delivery' %}#delivery-section" class="mobile-menu-link">Доставка</a></li>
+          <li><a href="{% url 'feedback' %}#feedback-section" class="mobile-menu-link">Отзывы</a></li>
+          <li><a href="#contacts-section" class="mobile-menu-link">Контакты</a></li>
       <li>
         <span class="mobile-menu-link d-flex justify-content-between align-items-center" data-toggle="mobile-category" style="font-size:1.18rem;font-weight:500;">
           Продукция

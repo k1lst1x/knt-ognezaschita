@@ -60,7 +60,9 @@
   font-size: 1rem;
   box-shadow: -4px 0 16px rgba(0,0,0,0.08);
 }
-
+.contact-button-fixed:hover {
+  box-shadow: 0 0 32px 12px #ff5d5d22, -4px 0 16px rgba(0,0,0,0.08);
+}
 .contact-popup {
   position: fixed;
   top: 50%;
@@ -196,19 +198,9 @@
   }
 }
 @media (max-width: 768px) {
-  h1 {
-    font-size: 1.8rem;
-  }
-
-  .btn-lg-custom {
-    font-size: 1rem;
-    padding: 0.75rem 1.5rem;
-    min-width: 160px;
-  }
-
-  .lead {
-    font-size: 1rem;
-  }
+html {
+  scroll-behavior: smooth;
+}
 }
 </style>
 
@@ -225,7 +217,13 @@
     </main>
 
     <!-- Кнопка -->
-<button class="contact-button-fixed btn btn-outline-danger" onclick="togglePopup()">Связаться</button>
+<button class="contact-button-fixed" onclick="togglePopup()"><svg width="39" height="39" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="19.5" cy="19.5" r="19.5" fill="#F03222"/>
+<path d="M18.8114 20.2665L9.98593 15.8537C9.61989 15.6707 9.38275 15.2787 9.47359 14.8796C9.60606 14.2978 9.87632 14.0051 10.5103 13.8468C10.5787 13.8297 10.6495 13.8228 10.7201 13.8228H28.0214C28.0997 13.8228 28.1783 13.8314 28.2538 13.8521C28.914 14.0335 29.1785 14.3333 29.2954 14.8879C29.3788 15.2835 29.1367 15.6661 28.7734 15.8433L19.6971 20.2708C19.4173 20.4073 19.0899 20.4057 18.8114 20.2665Z" fill="white" stroke="#FFF5F5"/>
+<path d="M29.8732 24.9226C29.8817 25.4769 29.8445 26.0577 29.4816 26.4558C29.1058 26.8679 28.526 26.9384 27.8927 26.9109V26.9119H10.8615V26.9109C10.3239 26.9144 9.76681 26.8681 9.37512 26.5076C8.97324 26.1373 8.88079 25.5675 8.88 24.9314L9.88 24.9295C9.88072 25.5351 9.98543 25.7109 10.0519 25.7722C10.1281 25.8422 10.3102 25.9156 10.8575 25.9119H27.9161C28.5331 25.941 28.6928 25.8362 28.7423 25.782C28.8091 25.7087 28.883 25.5193 28.8741 24.9382L29.3741 24.9304L29.8732 24.9226Z" fill="white"/>
+<path d="M29.3734 25.4241V17.2785L19.5 22.2152H19.0064L9.37977 17.2785V25.4241" stroke="#FFF5F5"/>
+<path d="M10.6139 26.1646L10.1203 25.9314L9.87344 25.6983V17.7722L19.2532 22.7089L29.1266 17.7722V18.0053V25.9314L28.6329 26.1646H10.6139Z" fill="white" stroke="white"/>
+</svg></button>
 
 <!-- Затемнение -->
 <div class="overlay" id="popupOverlay" onclick="hidePopup()"></div>
@@ -271,7 +269,7 @@ function togglePopup() {
 
   if (isActive) {
     hidePopup();
-  } else {
+  } else {1
     showPopup();
   }
 }
@@ -284,7 +282,7 @@ function sendEmail() {
 }
 
 function sendWhatsApp() {
-  const phoneNumber = "77474347258";
+  const phoneNumber = "79451234567";
   const message = "Здравствуйте! Хочу получить консультацию.";
   const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
   window.open(url, "_blank");

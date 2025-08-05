@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<div class="container my-5">
+<div class="container my-5" id="about-section">
   <h2 class="mb-5" style="font-size:1.7rem;">
     <span class="text-danger">О компании КНТ:</span> ответственность перед клиентом — <br> главный принцип в огнезащите
 
@@ -48,7 +48,7 @@
       </ul>
     </div>
   </div>
-  <a href="#" class="btn btn-danger btn-lg rounded-pill btn-rounded btn-lg-custom" style="margin-top: 2zem;">ВЫБРАТЬ СОСТАВ</a>
+  <a href="{% url 'landing_index' %}" class="btn btn-danger btn-lg rounded-pill btn-rounded btn-lg-custom" style="margin-top: 2zem;">ВЫБРАТЬ СОСТАВ</a>
 </div>
 </div>
 
