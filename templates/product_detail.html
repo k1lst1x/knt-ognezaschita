@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block title %}{{ product.name }} — купить в Казахстане | KnT-Ognezaschita{% endblock %}
+{% block meta_description %}{{ product.name }}: {{ product.subtitle|default:product.category.title_in_list }}. Характеристики, применение, доставка по Казахстану. Сертифицированная огнезащита от KnT-Ognezaschita.{% endblock %}
+
 {% block content %}
 <div class="container my-5">
   <h2 style="font-size:1.7rem; font-weight:400; margin-bottom:2.5rem;">

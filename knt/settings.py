@@ -239,3 +239,55 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+JAZZMIN_SETTINGS = {
+    "site_title": "KnT-Ognezaschita | Admin",
+    "site_header": "KnT Огнезащита",
+    "site_brand": "KnT-Ognezaschita",
+    "site_logo": "images/knt-favicon/favicon-96x96.png",  # путь к иконке в static
+    "site_icon": "images/knt-favicon/favicon-96x96.png",
+    "welcome_sign": "Добро пожаловать в панель управления KnT",
+    "copyright": "KnT-Ognezaschita",
+
+    # Поиск по пользователям и продуктам (если хочешь, добавь "core.Product")
+    "search_model": ["auth.User", "core.Product"],
+
+    # Top Menu
+    "topmenu_links": [
+        {"name": "Сайт", "url": "/", "new_window": True},
+        {"model": "core.Product"},
+        {"model": "core.Category"},
+        {"app": "core"},
+        {"name": "Google Search Console", "url": "https://search.google.com/search-console/about", "new_window": True},
+    ],
+
+    # User Menu (иконка справа)
+    "usermenu_links": [
+        {"name": "На сайт", "url": "/", "new_window": True},
+    ],
+
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    "hide_apps": [],
+    "hide_models": [],
+    "order_with_respect_to": [
+        "core", "core.Product", "core.Category", "auth", "auth.User"
+    ],
+
+    # Кастомные иконки для основных моделей (можно менять)
+    "icons": {
+        "core": "fas fa-fire",
+        "core.Product": "fas fa-cube",
+        "core.Category": "fas fa-layer-group",
+        "auth": "fas fa-users-cog",
+        "auth.User": "fas fa-user",
+        "auth.Group": "fas fa-users",
+    },
+    "default_icon_parents": "fas fa-chevron-circle-right",
+    "default_icon_children": "fas fa-circle",
+
+    # UI tweaks
+    "use_google_fonts_cdn": True,
+    "show_ui_builder": False,
+    "changeform_format": "horizontal_tabs",
+}
